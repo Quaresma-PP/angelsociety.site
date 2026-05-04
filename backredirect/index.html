@@ -3,151 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oferta Especial - Última Chance</title>
+    <title>Oferta Especial — Novena Nossa Senhora Desatadora de Nós</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: linear-gradient(135deg, #1a0a00 0%, #3d1a00 100%);
+            font-family: 'Lato', sans-serif;
+            background: #0a1628;
             min-height: 100vh;
-            color: white;
+            color: #f0e6c8;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            padding: 20px;
+            padding: 0 0 40px;
         }
 
-        .overlay {
-            position: fixed;
+        /* ── BARRA TOPO ── */
+        .top-bar {
+            width: 100%;
+            background: #c0392b;
+            text-align: center;
+            padding: 11px 16px;
+            font-family: 'Cinzel', serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #fff;
+            animation: pulse-bar 1.8s ease-in-out infinite;
+        }
+        @keyframes pulse-bar {
+            0%,100% { opacity:1; }
+            50%      { opacity:.75; }
+        }
+
+        /* ── WRAPPER ── */
+        .wrapper {
+            max-width: 700px;
+            width: 92%;
+            margin-top: 28px;
+        }
+
+        /* ── BORDA ORNAMENTAL SUPERIOR ── */
+        .ornament {
+            text-align: center;
+            color: #d4af37;
+            font-size: 26px;
+            letter-spacing: 8px;
+            margin-bottom: 4px;
+            opacity: .7;
+        }
+
+        /* ── CARD ── */
+        .card {
+            background: linear-gradient(170deg, #0d1f3c 0%, #0a1628 60%, #071020 100%);
+            border: 2px solid #d4af37;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 0 60px rgba(212,175,55,.15), 0 20px 60px rgba(0,0,0,.6);
+        }
+
+        /* ── HEADER CARD ── */
+        .card-header {
+            background: linear-gradient(135deg, #0f2042 0%, #162d55 100%);
+            border-bottom: 2px solid #d4af37;
+            padding: 30px 32px 24px;
+            text-align: center;
+            position: relative;
+        }
+
+        .card-header::before {
+            content: '';
+            position: absolute;
             inset: 0;
             background-image: url('https://www.transparenttextures.com/patterns/crosses.png');
-            opacity: 0.05;
-            pointer-events: none;
+            opacity: .04;
         }
 
-        .wrapper {
-            max-width: 680px;
-            width: 100%;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* TOPO - ALERTA */
-        .top-alert {
-            background: #c0392b;
-            border-radius: 12px 12px 0 0;
-            padding: 14px 20px;
-            text-align: center;
-            font-size: 15px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            animation: blink 1.5s ease-in-out infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50%       { opacity: 0.75; }
-        }
-
-        /* CARD PRINCIPAL */
-        .card {
-            background: rgba(15, 8, 0, 0.95);
-            border: 2px solid #d4af37;
-            border-top: none;
-            border-radius: 0 0 20px 20px;
-            padding: 36px 40px 40px;
-            text-align: center;
-        }
-
-        .tag-oferta {
+        .tag {
             display: inline-block;
             background: #d4af37;
-            color: #1a0a00;
-            font-size: 12px;
-            font-weight: 800;
-            text-transform: uppercase;
+            color: #0a1628;
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            font-weight: 700;
             letter-spacing: 2px;
-            padding: 5px 18px;
+            padding: 5px 20px;
             border-radius: 50px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
         }
 
-        h1 {
-            font-size: 30px;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 10px;
+        .card-header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 26px;
+            font-weight: 900;
+            line-height: 1.25;
             color: #fff;
+            text-shadow: 0 2px 10px rgba(0,0,0,.5);
         }
 
-        h1 span {
+        .card-header h1 span {
             color: #d4af37;
         }
 
-        .subtitle {
-            font-size: 17px;
-            color: rgba(255,255,255,0.75);
-            margin-bottom: 28px;
+        .card-header p {
+            margin-top: 10px;
+            font-size: 15px;
+            color: rgba(240,230,200,.7);
             line-height: 1.5;
         }
 
-        /* PREÇO */
-        .price-box {
-            background: rgba(212, 175, 55, 0.08);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 26px;
+        /* ── CORPO ── */
+        .card-body {
+            padding: 28px 32px 32px;
         }
 
-        .de {
-            font-size: 18px;
-            color: rgba(255,255,255,0.45);
-            text-decoration: line-through;
-            margin-bottom: 4px;
-        }
-
-        .por {
+        /* ── O QUE VOCÊ RECEBE ── */
+        .section-title {
+            font-family: 'Cinzel', serif;
             font-size: 13px;
-            color: rgba(255,255,255,0.6);
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 4px;
+            color: #d4af37;
+            text-align: center;
+            margin-bottom: 16px;
         }
 
-        .preco {
-            font-size: 58px;
+        .items-grid {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .item-box {
+            flex: 1;
+            min-width: 140px;
+            background: rgba(212,175,55,.06);
+            border: 1px solid rgba(212,175,55,.3);
+            border-radius: 12px;
+            padding: 16px 12px;
+            text-align: center;
+        }
+
+        .item-box .ico { font-size: 28px; margin-bottom: 8px; }
+
+        .item-box .item-name {
+            font-family: 'Cinzel', serif;
+            font-size: 12px;
+            font-weight: 700;
+            color: #d4af37;
+            line-height: 1.3;
+        }
+
+        .item-box .item-desc {
+            font-size: 11px;
+            color: rgba(240,230,200,.55);
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        /* ── DIVISOR ── */
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0;
+            color: rgba(212,175,55,.35);
+            font-size: 18px;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(212,175,55,.25);
+        }
+
+        /* ── PREÇO ── */
+        .price-box {
+            background: rgba(212,175,55,.07);
+            border: 1px solid rgba(212,175,55,.35);
+            border-radius: 16px;
+            padding: 22px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .price-de {
+            font-size: 16px;
+            color: rgba(240,230,200,.4);
+            text-decoration: line-through;
+        }
+
+        .price-label {
+            font-family: 'Cinzel', serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: rgba(240,230,200,.5);
+            margin: 4px 0 2px;
+        }
+
+        .price-value {
+            font-family: 'Cinzel', serif;
+            font-size: 64px;
             font-weight: 900;
             color: #d4af37;
             line-height: 1;
         }
 
-        .preco sup {
-            font-size: 26px;
-            vertical-align: super;
-        }
+        .price-value sup { font-size: 24px; vertical-align: super; }
+        .price-value sub { font-size: 22px; }
 
-        .preco sub {
-            font-size: 20px;
-            vertical-align: sub;
-        }
-
-        .economia {
+        .price-economy {
             margin-top: 10px;
-            font-size: 14px;
-            color: #5cb85c;
+            font-size: 13px;
+            color: #5dbb6a;
             font-weight: 700;
         }
 
-        /* TIMER */
+        /* ── SORTEIO ── */
+        .sorteio-box {
+            background: linear-gradient(135deg, rgba(212,175,55,.12), rgba(212,175,55,.04));
+            border: 1px solid rgba(212,175,55,.4);
+            border-radius: 12px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .sorteio-icon { font-size: 32px; flex-shrink: 0; }
+
+        .sorteio-text { font-size: 13px; color: rgba(240,230,200,.8); line-height: 1.5; }
+        .sorteio-text strong { color: #d4af37; font-family: 'Cinzel', serif; }
+
+        /* ── TIMER ── */
         .timer-label {
-            font-size: 13px;
-            text-transform: uppercase;
+            text-align: center;
+            font-size: 12px;
             letter-spacing: 1px;
-            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            color: rgba(240,230,200,.45);
             margin-bottom: 10px;
         }
 
@@ -155,210 +253,226 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 26px;
+            margin-bottom: 24px;
         }
 
-        .timer-block {
-            background: rgba(255,255,255,0.07);
-            border: 1px solid rgba(212,175,55,0.25);
+        .t-block {
+            background: rgba(10,22,40,.8);
+            border: 1px solid rgba(212,175,55,.3);
             border-radius: 10px;
-            padding: 12px 16px;
-            min-width: 64px;
+            padding: 12px 18px;
+            text-align: center;
+            min-width: 68px;
         }
 
-        .timer-block .num {
-            font-size: 32px;
+        .t-num {
+            font-family: 'Cinzel', serif;
+            font-size: 34px;
             font-weight: 900;
             color: #d4af37;
             line-height: 1;
         }
 
-        .timer-block .lab {
-            font-size: 10px;
+        .t-lab {
+            font-size: 9px;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.4);
-            margin-top: 4px;
+            letter-spacing: 1px;
+            color: rgba(240,230,200,.35);
+            margin-top: 3px;
         }
 
-        /* CTA */
+        /* ── CTA ── */
         .btn-cta {
             display: block;
-            background: linear-gradient(to right, #27ae60, #2ecc71);
+            background: linear-gradient(to right, #1e7e34, #28a745);
             color: #fff;
-            font-size: 20px;
-            font-weight: 800;
-            padding: 18px 30px;
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            padding: 20px 28px;
             border-radius: 50px;
             text-decoration: none;
-            box-shadow: 0 6px 24px rgba(46, 204, 113, 0.45);
-            transition: all 0.3s;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
+            box-shadow: 0 6px 28px rgba(40,167,69,.45);
+            transition: all .3s;
+            border: 2px solid rgba(255,255,255,.15);
+            margin-bottom: 10px;
         }
 
         .btn-cta:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.55);
+            box-shadow: 0 10px 36px rgba(40,167,69,.55);
         }
 
-        .btn-cta .sub-cta {
+        .btn-sub {
+            text-align: center;
             font-size: 12px;
-            font-weight: 400;
-            opacity: 0.85;
-            display: block;
-            margin-top: 3px;
+            color: rgba(240,230,200,.4);
+            margin-bottom: 22px;
         }
 
-        /* Garantia */
+        /* ── GARANTIA ── */
         .garantia {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             font-size: 13px;
-            color: rgba(255,255,255,0.5);
-            margin-bottom: 24px;
+            color: rgba(240,230,200,.45);
+            margin-bottom: 22px;
         }
 
-        .garantia span {
-            font-size: 20px;
-        }
+        /* ── RECUSAR ── */
+        .recusar-wrap { text-align: center; }
 
-        /* Recusar */
         .recusar {
-            font-size: 13px;
-            color: rgba(255,255,255,0.3);
-            text-decoration: underline;
-            cursor: pointer;
-            transition: color 0.2s;
             background: none;
             border: none;
-            display: block;
-            margin: 0 auto;
+            font-size: 12px;
+            color: rgba(240,230,200,.25);
+            text-decoration: underline;
+            cursor: pointer;
+            transition: color .2s;
         }
 
-        .recusar:hover { color: rgba(255,255,255,0.5); }
+        .recusar:hover { color: rgba(240,230,200,.5); }
 
-        /* Divisor */
-        .divider {
-            height: 1px;
-            background: rgba(212,175,55,0.15);
-            margin: 24px 0;
+        /* ── BORDA ORNAMENTAL INFERIOR ── */
+        .ornament-bottom {
+            text-align: center;
+            color: #d4af37;
+            font-size: 22px;
+            letter-spacing: 6px;
+            margin-top: 8px;
+            opacity: .5;
         }
 
-        /* Bullets */
-        .bullets {
-            text-align: left;
-            margin-bottom: 26px;
-        }
-
-        .bullets li {
-            list-style: none;
-            font-size: 15px;
-            color: rgba(255,255,255,0.8);
-            padding: 6px 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        .bullets li::before {
-            content: "✅";
-            flex-shrink: 0;
-        }
-
-        @media (max-width: 480px) {
-            .card { padding: 28px 22px 32px; }
-            h1 { font-size: 24px; }
-            .preco { font-size: 46px; }
-            .timer-block { padding: 10px 12px; min-width: 54px; }
-            .timer-block .num { font-size: 26px; }
-            .btn-cta { font-size: 18px; padding: 16px 20px; }
+        /* ── RESPONSIVO ── */
+        @media (max-width: 520px) {
+            .card-header h1 { font-size: 20px; }
+            .price-value { font-size: 52px; }
+            .t-num { font-size: 28px; }
+            .btn-cta { font-size: 16px; padding: 17px 20px; }
+            .card-body { padding: 22px 18px 26px; }
+            .card-header { padding: 22px 18px 18px; }
         }
     </style>
 </head>
 <body>
-    <div class="overlay"></div>
+
+    <div class="top-bar">⚠️ Espere! Você está prestes a perder uma oferta exclusiva</div>
 
     <div class="wrapper">
-        <div class="top-alert">⚠️ Espere! Não vá embora — temos uma oferta exclusiva para você</div>
+
+        <div class="ornament">✦ ✦ ✦ ✦ ✦</div>
 
         <div class="card">
-            <div class="tag-oferta">🔥 Oferta por tempo limitado</div>
 
-            <h1>Última chance de garantir<br><span>com desconto especial!</span></h1>
-            <p class="subtitle">Esta oferta foi criada especialmente para você e desaparece quando o cronômetro chegar a zero.</p>
-
-            <!-- PREÇO -->
-            <div class="price-box">
-                <div class="de">De R$ 97,00</div>
-                <div class="por">Por apenas</div>
-                <div class="preco"><sup>R$</sup> 27<sub>,00</sub></div>
-                <div class="economia">🎉 Você economiza R$ 70,00 agora!</div>
+            <!-- HEADER -->
+            <div class="card-header">
+                <div class="tag">🙏 Oferta Especial — Apenas Agora</div>
+                <h1>Contribua com a Construção do Templo<br>e receba tudo isso por <span>R$ 97</span></h1>
+                <p>Esta oferta foi reservada exclusivamente para você e desaparece quando o cronômetro zerar.</p>
             </div>
 
-            <!-- TIMER -->
-            <div class="timer-label">⏳ Oferta expira em:</div>
-            <div class="timer">
-                <div class="timer-block"><div class="num" id="min">10</div><div class="lab">min</div></div>
-                <div class="timer-block"><div class="num" id="seg">00</div><div class="lab">seg</div></div>
+            <!-- BODY -->
+            <div class="card-body">
+
+                <!-- O QUE VOCÊ RECEBE -->
+                <p class="section-title">✦ O que você recebe ✦</p>
+
+                <div class="items-grid">
+                    <div class="item-box">
+                        <div class="ico">📖</div>
+                        <div class="item-name">Novena Sagrada</div>
+                        <div class="item-desc">Nossa Senhora Desatadora de Nós</div>
+                    </div>
+                    <div class="item-box">
+                        <div class="ico">🏅</div>
+                        <div class="item-name">Amuleto Consagrado</div>
+                        <div class="item-desc">Medalha abençoada pelo padre</div>
+                    </div>
+                    <div class="item-box">
+                        <div class="ico">✨</div>
+                        <div class="item-name">Óleo Ungido em Israel</div>
+                        <div class="item-desc">Consagrado na Terra Santa</div>
+                    </div>
+                </div>
+
+                <!-- SORTEIO -->
+                <div class="sorteio-box">
+                    <div class="sorteio-icon">✈️</div>
+                    <div class="sorteio-text">
+                        <strong>Sorteio Especial de Inauguração</strong><br>
+                        Ao contribuir agora, você concorre a uma passagem para a inauguração do Templo de Nossa Senhora.
+                    </div>
+                </div>
+
+                <div class="divider">✦</div>
+
+                <!-- PREÇO -->
+                <div class="price-box">
+                    <div class="price-de">De R$ 197,00</div>
+                    <div class="price-label">Contribuição especial por apenas</div>
+                    <div class="price-value"><sup>R$</sup> 97<sub>,00</sub></div>
+                    <div class="price-economy">🎉 Você economiza R$ 100,00 agora!</div>
+                </div>
+
+                <!-- TIMER -->
+                <div class="timer-label">⏳ Esta oferta expira em:</div>
+                <div class="timer">
+                    <div class="t-block"><div class="t-num" id="min">10</div><div class="t-lab">min</div></div>
+                    <div class="t-block"><div class="t-num" id="seg">00</div><div class="t-lab">seg</div></div>
+                </div>
+
+                <!-- CTA -->
+                <a href="COLOQUE_O_LINK_AQUI" class="btn-cta">
+                    ✅ Quero Contribuir com R$ 97 Agora
+                </a>
+                <p class="btn-sub">Pagamento 100% seguro • Acesso imediato após confirmação</p>
+
+                <!-- GARANTIA -->
+                <div class="garantia">
+                    🔒 &nbsp;Garantia de 7 dias — se não ficar satisfeito, devolvemos tudo
+                </div>
+
+                <!-- RECUSAR -->
+                <div class="recusar-wrap">
+                    <button class="recusar" onclick="window.history.back()">
+                        Não, prefiro abrir mão desta oferta
+                    </button>
+                </div>
+
             </div>
-
-            <!-- BULLETS -->
-            <ul class="bullets">
-                <li>Acesso imediato após o pagamento</li>
-                <li>Garantia de 7 dias ou seu dinheiro de volta</li>
-                <li>Pagamento 100% seguro e criptografado</li>
-                <li>Oferta válida apenas nesta página</li>
-            </ul>
-
-            <!-- CTA -->
-            <a href="COLOQUE_O_LINK_DE_PAGAMENTO_AQUI" class="btn-cta">
-                ✅ Quero garantir com desconto agora
-                <span class="sub-cta">Clique aqui e aproveite antes que expire</span>
-            </a>
-
-            <div class="garantia">
-                <span>🔒</span> Compra 100% segura — Garantia de 7 dias
-            </div>
-
-            <div class="divider"></div>
-
-            <button class="recusar" onclick="window.history.back()">
-                Não, prefiro pagar o preço cheio depois
-            </button>
         </div>
+
+        <div class="ornament-bottom">✦ ✦ ✦ ✦ ✦</div>
+
     </div>
 
     <script>
-        // =============================================
-        // CONFIGURAÇÃO
-        var MINUTOS = 10; // tempo do cronômetro
-        // =============================================
+        // ── CONFIGURAÇÃO ──────────────────
+        var MINUTOS = 10;
+        // ─────────────────────────────────
 
-        var total = MINUTOS * 60;
-        var minEl = document.getElementById('min');
-        var segEl = document.getElementById('seg');
+        var total  = MINUTOS * 60;
+        var minEl  = document.getElementById('min');
+        var segEl  = document.getElementById('seg');
 
-        var interval = setInterval(function () {
-            if (total <= 0) {
-                clearInterval(interval);
-                minEl.textContent = '00';
-                segEl.textContent = '00';
-                return;
-            }
+        setInterval(function () {
+            if (total <= 0) { minEl.textContent = '00'; segEl.textContent = '00'; return; }
             total--;
-            var m = Math.floor(total / 60);
-            var s = total % 60;
-            minEl.textContent = m < 10 ? '0' + m : m;
-            segEl.textContent = s < 10 ? '0' + s : s;
+            var m = Math.floor(total / 60), s = total % 60;
+            minEl.textContent = m < 10 ? '0'+m : m;
+            segEl.textContent = s < 10 ? '0'+s : s;
         }, 1000);
 
-        // Back-redirect: captura botão Voltar do navegador
+        // Back-redirect
         history.pushState(null, null, location.href);
         window.addEventListener('popstate', function () {
             history.pushState(null, null, location.href);
         });
     </script>
+
 </body>
 </html>
