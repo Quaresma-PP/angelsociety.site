@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novena de Nossa Senhora Desatadora de Nós - Oferta Especial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .strikethrough {
+            text-decoration: line-through;
+        }
+        .btn-action {
+            background-color: #07960b;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 16px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        .btn-action:hover {
+            background-color: #008c44;
+            transform: translateY(-2px);
+        }
+        h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+        .vagas {
+            color: #d9534f;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 15px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        .progress {
+            height: 100%;
+            background-color: #4CAF50;
+            width: 0;
+            animation: fill-progress 1s ease-in-out forwards;
+            position: relative;
+        }
+
+        .progress::after {
+            content: "100%";
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            opacity: 0;
+            animation: show-percentage 1s ease-in-out forwards;
+            animation-delay: 0.9s;
+        }
+
+        @keyframes show-percentage {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fill-progress {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        /* ======================================== */
+        /* RESPONSIVIDADE MOBILE */
+        /* ======================================== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+                max-width: 100%;
+            }
+            .checkout-btn, .refuse-btn {
+                font-size: 14px !important;
+                padding: 12px 16px !important;
+                min-height: 50px;
+            }
+            h1 {
+                font-size: 1.5rem !important;
+                line-height: 1.2;
+            }
+            h1.whitespace-nowrap {
+                font-size: 1.25rem !important;
+                white-space: nowrap !important;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            h2.whitespace-nowrap {
+                font-size: 1rem !important;
+                white-space: nowrap !important;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            h2 {
+                font-size: 1.5rem !important;
+                line-height: 1.3;
+            }
+            h3 {
+                font-size: 1.25rem !important;
+            }
+            .bg-red-600, .bg-yellow-100, .bg-red-100, .bg-gray-50, .bg-green-100 {
+                margin: 10px 0;
+                padding: 15px !important;
+            }
+            .flex.items-center {
+                flex-direction: column;
+                text-align: center;
+            }
+            .flex.items-center .w-32 {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+            .bg-gray-50 {
+                margin: 10px 0;
+                padding: 15px !important;
+            }
+            #countdown {
+                font-size: 2rem !important;
+            }
+            .text-3xl {
+                font-size: 2rem !important;
+            }
+            .text-2xl {
+                font-size: 1.5rem !important;
+            }
+            .mb-6 {
+                margin-bottom: 20px !important;
+            }
+            .mb-4 {
+                margin-bottom: 15px !important;
+            }
+            .whitespace-nowrap {
+                white-space: normal !important;
+                word-break: break-word;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 5px;
+            }
+            .checkout-btn, .refuse-btn {
+                font-size: 12px !important;
+                padding: 10px 12px !important;
+            }
+            h1 {
+                font-size: 1.25rem !important;
+            }
+            h1.whitespace-nowrap {
+                font-size: 1rem !important;
+                white-space: nowrap !important;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            h2.whitespace-nowrap {
+                font-size: 0.875rem !important;
+                white-space: nowrap !important;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            h2 {
+                font-size: 1.25rem !important;
+            }
+            .text-3xl {
+                font-size: 1.75rem !important;
+            }
+            #countdown {
+                font-size: 1.75rem !important;
+            }
+            .bg-red-600, .bg-yellow-100, .bg-red-100, .bg-gray-50, .bg-green-100 {
+                padding: 10px !important;
+            }
+        }
+    </style>
+
+<!-- ======================================== -->
+<!-- SCRIPTS DE MARKETING E PAGAMENTO -->
+<!-- ======================================== -->
+
+<!-- Sistema de redirecionamento quando usuário tenta sair -->
+<script>
+    const link = 'https://checkout.ticto.app/ODE9F1C51';
+
+    function setBackRedirect(url) {
+      let urlBackRedirect = url;
+      urlBackRedirect = urlBackRedirect.trim() +
+        (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+        document.location.search.replace('?', '').toString();
+
+      history.pushState({}, '', location.href);
+      history.pushState({}, '', location.href);
+      history.pushState({}, '', location.href);
+
+      window.addEventListener('popstate', () => {
+        setTimeout(() => {
+          location.href = urlBackRedirect;
+        }, 1);
+      });
+    }
+
+    setBackRedirect(link);
+</script>
+
+<!-- Sistema de redirecionamento para checkout -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const buttons = document.querySelectorAll('.checkout-btn');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                let checkoutUrl = 'https://checkout.ticto.app/ODE9F1C51';
+
+                // adiciona parâmetros UTM se existirem
+                const currentParams = window.location.search;
+                if (currentParams) {
+                    checkoutUrl += (checkoutUrl.includes('?') ? '&' : '?') + currentParams.slice(1);
+                }
+
+                window.location.href = checkoutUrl;
+            });
+        });
+    });
+</script>
+
+<!-- Contador de 15 minutos -->
+<script>
+    const COUNTDOWN_KEY = 'countdown_time';
+    const INITIAL_TIME = 15 * 60;
+
+    function getRemainingTime() {
+        const stored = localStorage.getItem(COUNTDOWN_KEY);
+        if (stored) {
+            const storedTime = parseInt(stored);
+            const now = Date.now();
+            const storedTimestamp = localStorage.getItem(COUNTDOWN_KEY + '_timestamp');
+            if (storedTimestamp) {
+                const elapsed = Math.floor((now - parseInt(storedTimestamp)) / 1000);
+                const remaining = storedTime - elapsed;
+                return Math.max(0, remaining);
+            }
+        }
+        return INITIAL_TIME;
+    }
+
+    function saveTime(timeLeft) {
+        localStorage.setItem(COUNTDOWN_KEY, timeLeft.toString());
+        localStorage.setItem(COUNTDOWN_KEY + '_timestamp', Date.now().toString());
+    }
+
+    function clearStoredTime() {
+        localStorage.removeItem(COUNTDOWN_KEY);
+        localStorage.removeItem(COUNTDOWN_KEY + '_timestamp');
+    }
+
+    let timeLeft = getRemainingTime();
+
+    function updateCountdown() {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        const display = document.getElementById('countdown');
+        if (display) {
+            display.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        if (timeLeft > 0) {
+            timeLeft--;
+            saveTime(timeLeft);
+            setTimeout(updateCountdown, 1000);
+        } else {
+            if (display) {
+                display.textContent = "00:00";
+                display.style.color = "#ff0000";
+            }
+            clearStoredTime();
+        }
+    }
+
+    window.addEventListener('load', updateCountdown);
+</script>
+</head>
+
+
+
+
+<body>
+        <!-- Barra de progresso -->
+        <div class="container mx-auto px-4 mt-4">
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+
+    <div class="container">
+
+        <div class="text-left mb-8">
+            <div class="bg-red-600 text-white text-center py-4 px-6 mb-6 rounded-lg">
+                <h2 class="text-lg md:text-3xl font-bold whitespace-nowrap">⚠️ATENÇÃO! ÚLTIMA OPORTUNIDADE!</h2>
+            </div>
+
+            <div class="text-center mb-6">
+                <h1 class="text-2xl md:text-4xl font-bold mb-4 text-black whitespace-nowrap">🎁 VOCÊ GANHOU UM PRESENTE</h1>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4 text-center text-red-600">🚨 ATENÇÃO: Esta oferta vai sair do ar em instantes!</h2>
+
+            <p class="mb-4 text-center text-lg">Você foi selecionado para receber acesso à poderosa <span class="font-bold">Novena de Nossa Senhora Desatadora de Nós</span> com um desconto exclusivo que não se repetirá.</p>
+
+            <div class="bg-yellow-100 border-4 border-yellow-400 rounded-lg p-6 mb-6 text-center">
+                <div class="mb-4">
+                    <p class="text-xl mb-2"><span class="strikethrough text-gray-500">R$ 197,00</span></p>
+                    <p class="text-3xl font-bold text-green-600">R$ 97,00</p>
+                    <p class="text-lg font-semibold text-green-600">Você economiza R$ 100,00 hoje!</p>
+                </div>
+
+                <button type="button" style="background: rgb(12, 150, 31); color: rgb(255, 255, 255); padding: 16px 24px; text-decoration: none; font-size: 18px; font-family: Poppins; border-radius: 13px; display: block; margin: 10px auto; width: 100%; font-weight: bold; white-space: normal;" class="checkout-btn">
+                    QUERO APROVEITAR AGORA!
+                </button>
+            </div>
+
+            <div class="bg-red-100 border-4 border-red-400 rounded-lg p-4 mb-6 text-center">
+                <h3 class="text-xl font-bold mb-2 text-red-600">⏰ Esta oferta termina em:</h3>
+                <div id="countdown" class="text-3xl font-bold text-red-600 mb-4">15:00</div>
+            </div>
+
+            <div class="bg-gray-50 border-4 border-yellow-400 rounded-lg p-6 mb-6">
+                <h3 class="text-2xl font-bold mb-4 text-center">🎁PRESENTES QUE VOCÊ VAI RECEBER HOJE:</h3>
+
+                <div class="mb-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-32 h-32 mr-4 flex-shrink-0">
+                            <img src="images/rdAs orações de milagre do Padre Pio.webp" alt="Orações de Milagre do Padre Pio" class="w-full h-full object-cover rounded-lg">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Orações de Milagre do Padre Pio:</h4>
+                            <p>As principais orações usadas pelo próprio Padre Pio para realizar milagres em sua época.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center mb-4">
+                        <div class="w-32 h-32 mr-4 flex-shrink-0">
+                            <img src="images/rdOrações Guiadas do Frei Gilson.webp" alt="Orações Guiadas do Frei Gilson" class="w-full h-full object-cover rounded-lg">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Orações Guiadas do Frei Gilson:</h4>
+                            <p>Orações e orientações de como orar do nosso amado Frei Gilson. Além de aprender como orar nos momentos propícios, a abordagem de temas específicos com frases dos santos, citações do catecismo e versículos bíblicos para cada mistério do Rosário.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center mb-4">
+                        <div class="w-32 h-32 mr-4 flex-shrink-0">
+                            <img src="images/rdOs Maiores Louvores do Padre Marcelo Rossi, Padre Fábio de Mello, Padre Reginaldo Manzotti e Frei Gilson.webp" alt="Coleção de Louvores" class="w-full h-full object-cover rounded-lg">
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg">Coleção de Louvores:</h4>
+                            <p>Uma coleção dos maiores louvores dos meus amigos Padre Marcelo Rossi, Padre Fábio de Mello, Padre Reginaldo Manzotti e Frei Gilson, que vão edificar sua vida, expulsar todo o mal e contribuir para sua jornada de bênçãos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-yellow-100 border-4 border-yellow-400 rounded-lg p-6 mb-6 text-center">
+                <h3 class="text-2xl font-bold mb-4">APROVEITE ESTA OPORTUNIDADE ÚNICA!</h3>
+
+                <p class="text-3xl font-bold text-green-600 mb-4">R$ 97,00</p>
+
+                <button type="button" style="background: rgb(12, 150, 31); color: rgb(255, 255, 255); padding: 16px 24px; text-decoration: none; font-size: 18px; font-family: Poppins; border-radius: 13px; display: block; margin: 10px auto; width: 100%; font-weight: bold; white-space: normal;" class="checkout-btn">
+                    QUERO APROVEITAR AGORA!
+                </button>
+            </div>
+
+            <div class="bg-green-100 border-4 border-green-400 rounded-lg p-4 mb-6 text-center">
+                <p class="font-semibold text-green-800">Garantia de 30 dias: Se por qualquer motivo você não ficar satisfeito, devolveremos 100% do seu investimento. Sem perguntas!</p>
+            </div>
+
+            <div class="mb-6">
+                <div class="bg-gray-50 border-4 border-yellow-400 rounded-lg p-4 mb-4">
+                    <p class="italic mb-2">"Eu estava hesitante no início, mas decidi aceitar a oferta especial. Foi a melhor decisão espiritual que já tomei! As orações me conectaram verdadeiramente com meu anjo da guarda e minha vida mudou completamente em apenas uma semana."</p>
+                    <p class="font-bold">— Maria C., São Paulo</p>
+                </div>
+
+                <div class="bg-gray-50 border-4 border-yellow-400 rounded-lg p-4 mb-4">
+                    <p class="italic mb-2">"Nunca imaginei que uma novena pudesse ter tanto poder! Comecei a rezar a Novena de Nossa Senhora Desatadora de Nós há 5 dias e já sinto uma paz que nunca tinha experimentado. Meu marido até comentou que eu estou diferente, mais calma e feliz."</p>
+                    <p class="font-bold">— Ana Lurdes R., Rio de Janeiro</p>
+                </div>
+
+                <div class="bg-gray-50 border-4 border-yellow-400 rounded-lg p-4 mb-4">
+                    <p class="italic mb-2">"Estava passando por uma fase muito difícil na vida quando conheci essa novena. Em apenas 3 dias de prática, recebi uma notícia maravilhosa sobre meu trabalho. Não tenho dúvidas de que foi uma intervenção divina!"</p>
+                    <p class="font-bold">— Carlos Eduardo M., Belo Horizonte</p>
+                </div>
+
+                <div class="bg-gray-50 border-4 border-yellow-400 rounded-lg p-4 mb-4">
+                    <p class="italic mb-2">"Minha filha estava doente há meses e nada parecia funcionar. Comecei a rezar a Novena de Nossa Senhora Desatadora de Nós e, na segunda semana, ela começou a melhorar. Hoje ela está completamente curada. Deus é fiel!"</p>
+                    <p class="font-bold">— Lucimar S., Fortaleza</p>
+                </div>
+            </div>
+
+
+        <!-- Botões de ação -->
+        <div class="container mx-auto px-4 mt-4">
+            <button type="button" style="background: rgb(12, 150, 31); color: rgb(255, 255, 255); padding: 14px; text-decoration: none; font-size: 15px; font-family: Roboto; border-radius: 13px; display: block; margin: 10px auto; width: 100%; font-weight: bold; white-space: normal;" class="checkout-btn">
+                SIM, QUERO RECEBER MINHA NOVENA AGORA
+            </button>
+
+        </div>
+
+            <br>
+
+        </div>
+    </div>
+</body>
+</html>
