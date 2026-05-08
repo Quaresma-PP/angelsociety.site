@@ -469,6 +469,57 @@ src="https://www.facebook.com/tr?id=1670266720125715&ev=PageView&noscript=1"
     </div>
 
 
+    <script>
+(function() {
+  var upsellUrl = 'https://angelsociety.site/oferta';
+
+  // Método 1: popstate — funciona no Android e no botão voltar do iOS
+  history.pushState({}, '', location.href);
+  history.pushState({}, '', location.href);
+  history.pushState({}, '', location.href);
+
+  window.addEventListener('popstate', function() {
+    setTimeout(function() {
+      var dest = upsellUrl;
+      var params = window.location.search;
+      if (params) {
+        dest += (dest.indexOf('?') > -1 ? '&' : '?') + params.replace('?', '');
+      }
+      window.location.href = dest;
+    }, 1);
+  });
+
+  // Método 2: pageshow — cobre o swipe-back do iOS Safari (bfcache)
+  window.addEventListener('pageshow', function(e) {
+    if (e.persisted) {
+      window.location.href = upsellUrl;
+    }
+  });
+
+  // Método 3: visibilitychange — cobre navegadores que pausam a página ao voltar
+  document.addEventListener('visibilitychange', function() {
+    if (!document.hidden) {
+      var last = sessionStorage.getItem('_left_page');
+      if (last === '1') {
+        sessionStorage.removeItem('_left_page');
+        window.location.href = upsellUrl;
+      }
+    }
+  });
+
+  // Marca que o usuário saiu da página
+  window.addEventListener('pagehide', function() {
+    sessionStorage.setItem('_left_page', '1');
+  });
+
+  window.addEventListener('beforeunload', function() {
+    sessionStorage.setItem('_left_page', '1');
+  });
+
+})();
+</script>
+
+
 
 <footer class="footer">
     <div class="footer-content">
