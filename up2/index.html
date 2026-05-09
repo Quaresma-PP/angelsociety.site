@@ -101,7 +101,7 @@
   </style>
 
   <!-- Ticto One Click Buy -->
-  <script src="https://midas.ticto.app/oneclickbuy.js" async></script>
+  <script src="https://midas.ticto.app/oneclickbuy.js?flow=86436b0f-7d39-40b9-bbf7-566341a79123.110945" async></script>
 
   <!-- VELOCIDADE UP2 -->
  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
@@ -139,12 +139,30 @@
     </div>
     <!-- FIM -->
      <br>
-
+<style>.ticto-upsell-button {
+  display: block;
+  width: 100%;
+  padding: 20px 24px;
+  background: #1D9E75;
+  color: #fff;
+  font-size: clamp(13px, 3.5vw, 15px);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: background 0.15s, transform 0.1s;
+  margin: 0 16px;          /* ← isso aqui */
+  width: calc(100% - 32px); /* ← compensa o margin */
+}</style>
     <!-- Botões Ticto ocultos — aparecem após 7 minutos -->
     <div id="wrapper-botoes" class="wrapper-botoes" style="display:none;">
-      <button type="button" style="background-color:#278f0a;width:327px;height:50px;font-family:;font-size:17px;font-weight:400;color:#e8e8e8;border-color:#59ff00;border-radius:6px;border-width:0px;text-transform:none" class="ticto-upsell-button" data-offer-code="O3257E6B0">Baixar as orações da prosperidade de são francisco</button>
+      <button type="button" class="ticto-upsell-button">Baixar as orações da prosperidade de são francisco</button>
       <br>
-      <button type="button" style="background-color:#ffffff;width:255px;height:50px;font-family:;font-size:12px;font-weight:500;color:#000000;border-color:#ffffff;border-radius:8px;border-width:0px;text-transform:none" class="ticto-refuse-button"> Não quero prosperar através de são francisco</button>
+      <button type="button"  class="ticto-refuse-button" > Não quero prosperar através de são francisco</button>
     </div>
 
   </div>
