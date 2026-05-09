@@ -94,7 +94,7 @@
   </style>
 
   <!-- Ticto One Click Buy -->
-  <script src="https://midas.ticto.app/oneclickbuy.js" async></script>
+ <script src="https://midas.ticto.app/oneclickbuy.js?flow=86436b0f-7d39-40b9-bbf7-566341a79123.110945" async></script>
   <!-- FIM Ticto -->
 
   <!-- VELOCIDADE UP1 -->
@@ -136,12 +136,45 @@
   </div>
   <!-- Fim -->
   <br> 
+<style>.ticto-upsell-button {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  padding: 18px 32px;
+  background: #1D9E75;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+.ticto-upsell-button:hover { background: #0F6E56; }
+.ticto-upsell-button:active { transform: scale(0.98); }
 
+.ticto-refuse-button {
+  display: block;
+  margin-top: 14px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #888;
+  border-radius: 0;
+  color: #888;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 2px 0;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+.ticto-refuse-button:hover { opacity: 1; }</style>
   <!-- Botões Ticto ocultos — aparecem após 7 minutos -->
   <div id="wrapper-botoes" class="wrapper-botoes" style="display:none;">
-    <button type="button" style="background-color:#038112;width:255px;height:50px;font-family:Roboto;font-size:17px;font-weight:400;color:#FFFFFF;border-color:#000000;border-radius:10px;border-width:0px;text-transform:none" class="ticto-upsell-button" data-offer-code="OFF9B5375">Acessar a música sagrada que cura doenças</button>
+   <button type="button" class="ticto-upsell-button">Acessar a música sagrada que cura doenças</button>
  <br>
-    <button type="button" style="background-color:#ffffff;width:255px;height:50px;font-family:Roboto;font-size:13px;font-weight:400;color:#080808;border-color:#000000;border-radius:10px;border-width:2px;text-transform:none" class="ticto-refuse-button" > Não quero receber o milagre da cura</button>
+   <button type="button"  class="ticto-refuse-button" > Não quero receber o milagre da cura</button>
   </div>
 
   <!-- Delay 7 minutos (420 segundos) -->
