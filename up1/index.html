@@ -153,6 +153,8 @@
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   transition: background 0.15s, transform 0.1s;
+  margin: 0 16px;          /* ← isso aqui */
+  width: calc(100% - 32px); /* ← compensa o margin */
 }
 .ticto-upsell-button:active {
   background: #0F6E56;
