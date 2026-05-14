@@ -165,15 +165,6 @@
     }
   </style>
 
-  <script>
-  window.googlePixelId = "6a052935a823e9c41c568ab7";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-google.js");
-  document.head.appendChild(a);
-</script>
-
   <script
   src="https://cdn.utmify.com.br/scripts/utms/latest.js"
   data-utmify-prevent-xcod-sck
@@ -182,6 +173,14 @@
   defer
 ></script>
   
+  <script>
+  window.googlePixelId = "6a052935a823e9c41c568ab7";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-google.js");
+  document.head.appendChild(a);
+</script>
 </head>
 <body>
 
@@ -215,7 +214,7 @@
 
       <p class="subheadline">Clique abaixo e Ouça agora</p>
 
-      <a href="https://angelsociety.site/vsl-1" class="cta-btn">
+      <a href="https://angelsociety.site/vsl-1" class="cta-btn" id="cta-btn">
         <!-- ícone play -->
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
           <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -240,5 +239,15 @@
     <a href="termos.html">Termos de Uso</a> &nbsp;·&nbsp; <a href="privacidade.html">Política de Privacidade</a>
   </footer>
 
+  <script>
+    (function () {
+      var params = window.location.search; // ex: ?tftk=55bdd5cf-d&utm_campaign=123...
+      if (!params) return;
+      var btn = document.getElementById('cta-btn');
+      var base = btn.href;
+      // se o destino já tiver "?" concatena com &, senão com ?
+      btn.href = base + (base.indexOf('?') !== -1 ? '&' : '?') + params.slice(1);
+    })();
+  </script>
 </body>
 </html>
