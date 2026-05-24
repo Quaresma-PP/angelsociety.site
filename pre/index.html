@@ -1,252 +1,921 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Desatadora de Nós</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<!DOCTYPE html><html lang="pt-BR"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novena de Nossa Senhora Desatadora dos Nós</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      min-height: 100vh;
-      background: radial-gradient(ellipse at center, #c9920a 0%, #8b6000 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 32px 16px 48px;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefdfb;
+            color: #2d2a26;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-    /* ── Card ── */
-    .card {
-      width: 100%;
-      max-width: 420px;
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.45);
-      background: #fff;
-      position: relative;
-    }
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
 
-    /* ── Imagem hero ── */
-    .hero {
-      width: 70%;
-      max-width: 260px;
-      height: auto;
-      display: block;
-      margin: 24px auto 8px;
-      border-radius: 12px;
-    }
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, #fefdfb 0%, #f7f2eb 50%, #efe8dd 100%);
+            position: relative;
+        }
 
-    /* placeholder quando não há imagem */
-    .hero-placeholder {
-      width: 100%;
-      height: 220px;
-      background: linear-gradient(160deg, #f5d98a 0%, #c9920a 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(180deg, transparent, #c9a96e);
+        }
 
-    .hero-placeholder span {
-      font-size: 90px;
-      opacity: 0.6;
-    }
+        .hero-content {
+            max-width: 700px;
+        }
 
-    /* ── Badge ── */
-    .badge {
-      background: linear-gradient(90deg, #5a3a00, #8b6000, #5a3a00);
-      color: #f5d98a;
-      font-family: 'Poppins', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 10px 20px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
+        .hero-cross {
+            font-size: 36px;
+            color: #c9a96e;
+            margin-bottom: 30px;
+            display: block;
+        }
 
-    .badge-icon {
-      font-size: 16px;
-    }
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 44px);
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
 
-    /* ── Conteúdo ── */
-    .content {
-      background: #fffef7;
-      padding: 28px 24px 32px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-    }
+        .hero h1 span {
+            color: #8b6914;
+            display: block;
+            font-style: italic;
+        }
 
-    /* ── Headline ── */
-    .headline {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(24px, 6vw, 30px);
-      font-weight: 900;
-      color: #1a1008;
-      text-align: center;
-      line-height: 1.25;
-    }
+        .hero p {
+            font-size: clamp(16px, 2.5vw, 19px);
+            color: #5a5550;
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 580px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    .headline em {
-      font-style: italic;
-      color: #8b6000;
-    }
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #8b6914, #c9a96e);
+            color: #fff;
+            padding: 18px 48px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(139, 105, 20, 0.3);
+            border: none;
+            cursor: pointer;
+        }
 
-    /* ── Subheadline ── */
-    .subheadline {
-      font-size: 13px;
-      font-weight: 700;
-      color: #8b6000;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      text-align: center;
-    }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(139, 105, 20, 0.4);
+        }
 
-    /* ── Botão ── */
-    .cta-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 17px 20px;
-      background: linear-gradient(135deg, #e8a800, #f5c518, #d49200);
-      color: #1a1008;
-      font-family: 'Poppins', sans-serif;
-      font-size: 18px;
-      font-weight: 800;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 5px 18px rgba(180,120,0,0.5);
-      transition: transform 0.15s, box-shadow 0.15s;
-      animation: glow 2.4s ease-in-out infinite;
-    }
+        /* Divider */
+        .divider {
+            text-align: center;
+            padding: 40px 0;
+        }
 
-    .cta-btn:hover  { transform: translateY(-2px); box-shadow: 0 8px 26px rgba(180,120,0,0.7); }
-    .cta-btn:active { transform: translateY(0); }
+        .divider span {
+            display: inline-block;
+            width: 60px;
+            height: 1px;
+            background: #c9a96e;
+            vertical-align: middle;
+        }
 
-    @keyframes glow {
-      0%, 100% { box-shadow: 0 5px 18px rgba(180,120,0,0.45); }
-      50%       { box-shadow: 0 5px 30px rgba(180,120,0,0.80); }
-    }
+        .divider-icon {
+            display: inline-block;
+            margin: 0 15px;
+            color: #c9a96e;
+            font-size: 14px;
+        }
 
-    /* ── Envio instantâneo ── */
-    .instant {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      color: #777;
-    }
+        /* Pain Section */
+        .pain-section {
+            padding: 80px 20px;
+            background: #fefdfb;
+            text-align: center;
+        }
 
-    /* ── Footer ── */
-    footer {
-      margin-top: 28px;
-      text-align: center;
-      color: rgba(255,255,255,0.65);
-      font-size: 11px;
-      line-height: 2;
-    }
+        .pain-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-    footer a {
-      color: rgba(255,255,255,0.8);
-      text-decoration: underline;
-    }
-  </style>
+        .section-subtitle {
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #c9a96e;
+            margin-bottom: 16px;
+            font-weight: 500;
+        }
 
-  <script>
-  window.googlePixelId = "6a052935a823e9c41c568ab7";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-google.js");
-  document.head.appendChild(a);
-</script>
-<script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
+        .pain-section h2 {
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .pain-list {
+            list-style: none;
+            text-align: left;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .pain-list li {
+            padding: 18px 0;
+            border-bottom: 1px solid #f0ebe3;
+            font-size: 17px;
+            color: #4a4540;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .pain-list li::before {
+            content: '🪢';
+            flex-shrink: 0;
+            font-size: 18px;
+        }
+
+        /* Promise Section */
+        .promise-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #f7f2eb, #efe8dd);
+            text-align: center;
+        }
+
+        .promise-section .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .promise-section h2 {
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+            line-height: 1.3;
+        }
+
+        .promise-section p {
+            font-size: 18px;
+            color: #5a5550;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .promise-section blockquote {
+            font-style: italic;
+            font-size: 20px;
+            color: #8b6914;
+            margin: 40px auto;
+            padding: 24px 30px;
+            border-left: 3px solid #c9a96e;
+            text-align: left;
+            max-width: 500px;
+        }
+
+        /* What's Included */
+        .included-section {
+            padding: 100px 20px;
+            background: #fefdfb;
+            text-align: center;
+        }
+
+        .included-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .included-section h2 {
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 600;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+
+        .included-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .included-card {
+            padding: 30px;
+            border: 1px solid #f0ebe3;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .included-card:hover {
+            border-color: #c9a96e;
+            box-shadow: 0 4px 20px rgba(139, 105, 20, 0.08);
+        }
+
+        .included-card-icon {
+            font-size: 28px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .included-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .included-card p {
+            font-size: 15px;
+            color: #6b6560;
+            font-weight: 300;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #efe8dd, #f7f2eb);
+            text-align: center;
+        }
+
+        .testimonials .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .testimonials h2 {
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .testimonials-disclaimer {
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 24px;
+            text-align: left;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .testimonial-card p {
+            font-size: 15px;
+            color: #4a4540;
+            font-style: italic;
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .testimonial-card .name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #8b6914;
+        }
+
+        .testimonial-card .location {
+            font-size: 13px;
+            color: #999;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 100px 20px;
+            background: #fefdfb;
+            text-align: center;
+        }
+
+        .form-section .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-box {
+            background: linear-gradient(135deg, #1a1a1a, #2d2a26);
+            border-radius: 20px;
+            padding: 50px 40px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201, 169, 110, 0.08) 0%, transparent 60%);
+        }
+
+        .form-box .section-subtitle {
+            color: #c9a96e;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .form-box h2 {
+            font-size: clamp(22px, 3.5vw, 28px);
+            font-weight: 600;
+            margin-bottom: 10px;
+            position: relative;
+            line-height: 1.3;
+        }
+
+        .form-box .form-desc {
+            font-size: 15px;
+            color: #aaa;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .form-box .price-highlight {
+            font-size: 14px;
+            color: #c9a96e;
+            font-weight: 600;
+            margin-bottom: 30px;
+            position: relative;
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+            text-align: left;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #c9a96e;
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid #444;
+            border-radius: 10px;
+            background: #2d2a26;
+            color: #fff;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+
+        .form-group input::placeholder {
+            color: #777;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #c9a96e;
+        }
+
+        .form-group select {
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: #2d2a26;
+            color: #fff;
+        }
+
+        .form-submit {
+            margin-top: 24px;
+            width: 100%;
+            background: linear-gradient(135deg, #c9a96e, #e0c88a);
+            color: #1a1a1a;
+            font-weight: 700;
+            padding: 18px 40px;
+            font-size: 16px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(139, 105, 20, 0.3);
+            position: relative;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(139, 105, 20, 0.4);
+        }
+
+        .form-privacy {
+            font-size: 12px;
+            color: #777;
+            margin-top: 16px;
+            position: relative;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .success-message .success-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .success-message h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #c9a96e;
+        }
+
+        .success-message p {
+            font-size: 15px;
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        /* Disclaimer Section */
+        .disclaimer-section {
+            padding: 60px 20px;
+            background: #f2ede5;
+            border-top: 1px solid #e5ded4;
+        }
+
+        .disclaimer-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .disclaimer-section h3 {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8b6914;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .disclaimer-block {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #e5ded4;
+        }
+
+        .disclaimer-block:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .disclaimer-block h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3a3530;
+            margin-bottom: 8px;
+        }
+
+        .disclaimer-block p {
+            font-size: 13px;
+            color: #6b6560;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 20px;
+            text-align: center;
+            background: #1a1a1a;
+            color: #999;
+        }
+
+        .footer p {
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .footer-links {
+            margin-top: 16px;
+        }
+
+        .footer-links a {
+            color: #c9a96e;
+            text-decoration: none;
+            font-size: 13px;
+            margin: 0 12px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #e0c88a;
+        }
+
+        .footer-contact {
+            margin-top: 16px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; opacity: 0; }
+        .delay-2 { animation-delay: 0.4s; opacity: 0; }
+        .delay-3 { animation-delay: 0.6s; opacity: 0; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .form-box {
+                padding: 40px 24px;
+            }
+
+            .included-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="card">
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hero-cross">✝</span>
+            <h1 class="playfair fade-in">
+                Um guia devocional para fortalecer sua fé
+                <span class="delay-1">Novena de Nossa Senhora Desatadora dos Nós</span>
+            </h1>
+            <p class="delay-2">Um material devocional completo com orações, meditações e reflexões para os 9 dias da novena — um caminho de fé e entrega.</p>
+            <a href="#formulario" class="btn-primary delay-3">Quero saber mais</a>
+        </div>
+    </section>
 
-    <!-- Imagem hero -->
-    <!--
-      Coloque a imagem da Desatadora de Nós na pasta e ajuste o src abaixo.
-      Sugestão de nome: desatadora.jpg
-    -->
-    <img
-      class="hero"
-      src="desatadora.jpg"
-      alt="Desatadora de Nós"
-      onerror="this.outerHTML='<div class=\'hero-placeholder\'><span>🙏</span></div>'"
-    />
+    <!-- Pain Section -->
+    <section class="pain-section">
+        <div class="container">
+            <p class="section-subtitle">Para quem é este material</p>
+            <h2 class="playfair">Para quem deseja viver a fé com mais profundidade e buscar paz interior</h2>
+            <ul class="pain-list">
+                <li>Você sente necessidade de se conectar mais com sua espiritualidade</li>
+                <li>Deseja ter um momento diário de oração guiada e estruturada</li>
+                <li>Busca conforto espiritual em momentos de dificuldade</li>
+                <li>Quer conhecer e praticar a devoção a Nossa Senhora Desatadora dos Nós</li>
+                <li>Precisa de disciplina para manter uma rotina de oração por 9 dias</li>
+                <li>Deseja fazer a novena com orientação e materiais de apoio</li>
+            </ul>
+        </div>
+    </section>
 
-    <!-- Badge -->
-    <div class="badge">
-      <span class="badge-icon">✨</span>
-      DESATADORA DE NÓS
-      <span class="badge-icon">✨</span>
+    <!-- Divider -->
+    <div class="divider">
+        <span></span>
+        <span class="divider-icon">✝</span>
+        <span></span>
     </div>
 
-    <!-- Conteúdo -->
-    <div class="content">
+    <!-- Promise Section -->
+    <section class="promise-section">
+        <div class="container">
+            <p class="section-subtitle">Sobre a devoção</p>
+            <h2 class="playfair">Uma tradição católica de fé e confiança na intercessão de Maria</h2>
+            <p>A devoção a Nossa Senhora Desatadora dos Nós nasceu na Alemanha, no século XVII, e é praticada por fiéis ao redor do mundo. O Papa Francisco ajudou a difundir essa devoção na América Latina.</p>
+            <blockquote class="playfair">
+                "Virgem Maria, Mãe do belo amor, Mãe que nunca abandonou um filho que clamou por ajuda, ajudai-me a confiar no plano de Deus para minha vida."
+            </blockquote>
+            <p>Este material foi preparado para guiar seus 9 dias de oração com reflexões profundas e orações tradicionais da devoção.</p>
+        </div>
+    </section>
 
-      <h1 class="headline">
-        Escute essa <em>oração<br />de 7 palavras</em>
-      </h1>
+    <!-- What's Included -->
+    <section class="included-section">
+        <div class="container">
+            <p class="section-subtitle">O que está incluso</p>
+            <h2 class="playfair">Conteúdo completo para sua jornada devocional</h2>
+            <div class="included-grid">
+                <div class="included-card">
+                    <span class="included-card-icon">📿</span>
+                    <h3>9 Dias de Oração Guiada</h3>
+                    <p>Cada dia com reflexão bíblica, oração específica e meditação sobre a devoção mariana.</p>
+                </div>
+                <div class="included-card">
+                    <span class="included-card-icon">🎧</span>
+                    <h3>Áudios de Meditação</h3>
+                    <p>Meditações em áudio para acompanhar sua oração diária com mais recolhimento.</p>
+                </div>
+                <div class="included-card">
+                    <span class="included-card-icon">📖</span>
+                    <h3>Diário Espiritual</h3>
+                    <p>Um guia para registrar suas intenções, reflexões e experiências ao longo dos 9 dias.</p>
+                </div>
+                <div class="included-card">
+                    <span class="included-card-icon">🕊️</span>
+                    <h3>Oração de Consagração</h3>
+                    <p>No último dia, uma oração de consagração à Nossa Senhora conforme a tradição devocional.</p>
+                </div>
+                <div class="included-card">
+                    <span class="included-card-icon">🙏</span>
+                    <h3>Ladainha Completa</h3>
+                    <p>A ladainha de Nossa Senhora Desatadora dos Nós na íntegra, para uso pessoal.</p>
+                </div>
+                <div class="included-card">
+                    <span class="included-card-icon">💬</span>
+                    <h3>Comunidade de Apoio</h3>
+                    <p>Acesso a um grupo de pessoas fazendo a novena juntas, para compartilhar a experiência de fé.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <p class="subheadline">Clique abaixo e Ouça agora</p>
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <p class="section-subtitle">Experiências de participantes</p>
+            <h2 class="playfair">O que dizem sobre o material</h2>
+            <p class="testimonials-disclaimer">Os depoimentos abaixo representam experiências individuais. Resultados espirituais são pessoais e podem variar de pessoa para pessoa. Este produto não garante resultados específicos de qualquer natureza.</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"O material me ajudou a manter a disciplina da oração. Senti uma paz muito grande durante os 9 dias e me senti mais conectada com minha fé."</p>
+                    <span class="name">Maria A.</span><br>
+                    <span class="location">São Paulo, SP</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Nunca tinha conseguido terminar uma novena completa. Com o guia e os áudios, consegui fazer todos os dias. O conteúdo é muito bem feito."</p>
+                    <span class="name">Cláudia F.</span><br>
+                    <span class="location">Belo Horizonte, MG</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Recomendo para quem busca um momento de paz e recolhimento. As meditações são lindas e o diário espiritual ajuda muito a refletir."</p>
+                    <span class="name">Tereza S.</span><br>
+                    <span class="location">Recife, PE</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <a href="https://angelsociety.site/vsl-1" class="cta-btn" id="cta-btn">
-        <!-- ícone play -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-          <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-        </svg>
-        Ouvir Agora
-      </a>
+    <!-- Form Section -->
+    <section class="form-section" id="formulario">
+        <div class="container">
+            <p class="section-subtitle">Tenho interesse</p>
+            <h2 class="playfair" style="font-size: clamp(24px, 4vw, 34px); margin-bottom: 16px; color: #1a1a1a;">Preencha abaixo e entraremos em contato</h2>
+            <p style="font-size: 16px; color: #6b6560; margin-bottom: 40px;">Deixe seus dados que nossa equipe vai te chamar para explicar tudo sobre a Novena e tirar suas dúvidas.</p>
+            
+            <div class="form-box">
+                <p class="section-subtitle">Novena de Nossa Senhora Desatadora dos Nós</p>
+                <h2 class="playfair">Quero receber mais informações</h2>
+                <span class="price-highlight">Material completo por apenas R$ 197,00</span>
 
-      <div class="instant">
-        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="#8b6000" viewBox="0 0 16 16">
-          <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-        </svg>
-        Acesso imediato e gratuito
-      </div>
+                <form id="leadForm">
+                    <div class="form-group">
+                        <label for="nome">Nome completo</label>
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required="">
+                    </div>
 
-    </div>
-  </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="seu@email.com" required="">
+                    </div>
 
-  <!-- Rodapé fora do card -->
-  <footer>
-    &copy; 2026 Desatadora de Nós. Todos os direitos reservados.<br />
-    <a href="termos.html">Termos de Uso</a> &nbsp;·&nbsp; <a href="privacidade.html">Política de Privacidade</a>
-  </footer>
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp (com DDD)</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required="">
+                    </div>
 
-  <script>
-    (function () {
-      var params = window.location.search; // ex: ?tftk=55bdd5cf-d&utm_campaign=123...
-      if (!params) return;
-      var btn = document.getElementById('cta-btn');
-      var base = btn.href;
-      // se o destino já tiver "?" concatena com &, senão com ?
-      btn.href = base + (base.indexOf('?') !== -1 ? '&' : '?') + params.slice(1);
-    })();
-  </script>
-</body>
-</html>
+                    <div class="form-group">
+                        <label for="cidade">Cidade / Estado</label>
+                        <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo, SP">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="horario">Melhor horário para contato</label>
+                        <select id="horario" name="horario">
+                            <option value="">Selecione um horário</option>
+                            <option value="manha">Manhã (8h - 12h)</option>
+                            <option value="tarde">Tarde (12h - 18h)</option>
+                            <option value="noite">Noite (18h - 21h)</option>
+                            <option value="qualquer">Qualquer horário</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="form-submit">Quero ser contatada ✝</button>
+
+                    <p class="form-privacy">🔒 Seus dados estão seguros. Não compartilhamos suas informações com terceiros. Ao enviar, você concorda com nossa Política de Privacidade.</p>
+                </form>
+
+                <div class="success-message" id="successMessage">
+                    <span class="success-icon">🕊️</span>
+                    <h3 class="playfair">Recebemos seus dados!</h3>
+                    <p>Em breve nossa equipe entrará em contato pelo WhatsApp para te explicar todos os detalhes sobre a Novena de Nossa Senhora Desatadora dos Nós. Fique atenta ao seu celular. Deus abençoe! ✝</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <section class="disclaimer-section">
+        <div class="container">
+            <h3>Avisos Legais e Disclaimers</h3>
+
+            <div class="disclaimer-block">
+                <h4>Isenção de Responsabilidade — Google Ads e YouTube Ads</h4>
+                <p>Este site não é parte do Google, do YouTube nem é endossado por eles. Google e YouTube são marcas registradas da GOOGLE LLC. Este site e seu conteúdo não possuem qualquer vínculo, patrocínio, endosso ou aprovação por parte do Google Inc., YouTube, Google Ads ou qualquer uma de suas subsidiárias ou afiliadas. Toda a responsabilidade pelo conteúdo deste site é exclusivamente de seu proprietário. Ao utilizar os serviços de publicidade do Google, declaramos que cumprimos integralmente as políticas de publicidade do Google Ads, incluindo as diretrizes sobre conteúdo enganoso, práticas comerciais e proteção ao consumidor.</p>
+            </div>
+
+            <div class="disclaimer-block">
+                <h4>Isenção de Responsabilidade — Facebook e Meta</h4>
+                <p>Este site não faz parte do Facebook, Instagram ou Meta Platforms, Inc. e não é endossado por eles. Facebook e Instagram são marcas registradas da META PLATFORMS, Inc. Não possuímos qualquer tipo de vínculo, patrocínio ou associação com a Meta Platforms, Inc. ou qualquer uma de suas subsidiárias.</p>
+            </div>
+
+            <div class="disclaimer-block">
+                <h4>Natureza do Produto</h4>
+                <p>Este é um produto digital de conteúdo devocional e educacional sobre a tradição da Novena de Nossa Senhora Desatadora dos Nós. Trata-se de um material de apoio à oração e à vida espiritual. Este produto NÃO é um tratamento médico, psicológico, financeiro ou jurídico e NÃO substitui acompanhamento profissional em nenhuma dessas áreas. Não fazemos promessas de cura, prosperidade financeira, resolução de problemas pessoais ou qualquer tipo de resultado específico material ou imaterial. A experiência espiritual é pessoal, subjetiva e individual.</p>
+            </div>
+
+            <div class="disclaimer-block">
+                <h4>Resultados e Depoimentos</h4>
+                <p>Os depoimentos apresentados neste site são relatos de experiências pessoais e individuais dos participantes sobre o uso do material devocional. Eles não representam garantia de que você terá os mesmos resultados ou experiências semelhantes. Resultados espirituais dependem de fatores pessoais e não podem ser garantidos por nenhum material, produto ou serviço. Nenhum depoimento deve ser interpretado como promessa de resultado.</p>
+            </div>
+
+            <div class="disclaimer-block">
+                <h4>Saúde e Bem-Estar</h4>
+                <p>Este produto não é um tratamento médico e não substitui consultas, diagnósticos ou tratamentos de profissionais de saúde qualificados. Nenhuma informação contida neste material deve ser interpretada como aconselhamento médico, psicológico ou terapêutico. Se você possui qualquer condição de saúde física ou mental, procure orientação de um profissional habilitado antes de tomar qualquer decisão.</p>
+            </div>
+
+            <div class="disclaimer-block">
+                <h4>Coleta de Dados e Contato</h4>
+                <p>Ao preencher o formulário neste site, você autoriza expressamente que nossa equipe entre em contato com você através do WhatsApp, e-mail ou telefone informados, exclusivamente para tratar sobre o produto apresentado nesta página. Você pode solicitar a remoção dos seus dados a qualquer momento enviando um e-mail para suporte@lindamaquia.shop. Estamos em conformidade com a Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018).</p>
+            </div>
+
+            <div class="disclaimer-block">
+                <h4>Política de Reembolso</h4>
+                <p>Após a aquisição do produto, oferecemos garantia incondicional de 7 (sete) dias corridos a partir da data da compra, conforme previsto no Art. 49 do Código de Defesa do Consumidor (Lei nº 8.078/1990). Para solicitar o reembolso integral, basta entrar em contato pelo e-mail suporte@lindamaquia.shop dentro do prazo estipulado.</p>
+            </div>
+
+            <div class="disclaimer-block">
+                <h4>Identificação do Responsável</h4>
+                <p>Razão Social: CLEYDIELE BARBOSA DE ANDRADE | CNPJ: 43.820.548/0001-90 | E-mail: suporte@lindamaquia.shop | Este site é de responsabilidade exclusiva de seu proprietário, identificado acima, que responde integralmente por todo o conteúdo, ofertas e obrigações aqui apresentadas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2026 — Novena de Nossa Senhora Desatadora dos Nós. Todos os direitos reservados.</p>
+        <p>CLEYDIELE BARBOSA DE ANDRADE | CNPJ: 43.820.548/0001-90</p>
+        <div class="footer-links">
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Contato</a>
+        </div>
+        <p class="footer-contact">E-mail: suporte@lindamaquia.shop</p>
+        <p style="margin-top: 16px; font-size: 11px; color: #666;">Este site não é parte do Google, YouTube ou Meta Platforms, Inc. e não é endossado por nenhuma dessas empresas. Google, YouTube são marcas registradas da GOOGLE LLC. Facebook, Instagram são marcas registradas da META PLATFORMS, Inc.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Phone mask
+        const whatsappInput = document.getElementById('whatsapp');
+        whatsappInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.slice(0, 11);
+            if (value.length > 7) {
+                value = `(${value.slice(0,2)}) ${value.slice(2,7)}-${value.slice(7)}`;
+            } else if (value.length > 2) {
+                value = `(${value.slice(0,2)}) ${value.slice(2)}`;
+            } else if (value.length > 0) {
+                value = `(${value}`;
+            }
+            e.target.value = value;
+        });
+
+        // Form submission
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                nome: document.getElementById('nome').value,
+                email: document.getElementById('email').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                cidade: document.getElementById('cidade').value,
+                horario: document.getElementById('horario').value,
+                timestamp: new Date().toLocaleString('pt-BR')
+            };
+
+            // Log data (in production, send to your backend/webhook)
+            console.log('Lead capturado:', formData);
+
+            // Hide form, show success
+            this.style.display = 'none';
+            document.querySelector('.form-box .section-subtitle').style.display = 'none';
+            document.querySelector('.form-box h2').style.display = 'none';
+            document.querySelector('.form-box .price-highlight').style.display = 'none';
+            document.getElementById('successMessage').style.display = 'block';
+        });
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.pain-list li, .included-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+
+
+</body></html>
