@@ -157,12 +157,16 @@
   transition: background 0.15s, transform 0.1s;
   margin: 0 16px;          /* ← isso aqui */
   width: calc(100% - 32px); /* ← compensa o margin */
+  /* ajustes pro <a> ficar igual ao <button> */
+  text-decoration: none;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: inherit;
 }
 .ticto-upsell-button:active {
   background: #0F6E56;
   transform: scale(0.97);
 }
-
 .ticto-refuse-button {
   display: block;
   width: fit-content;
@@ -178,14 +182,19 @@
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   letter-spacing: 0.03em;
+  /* ajustes pro <a> ficar igual ao <button> */
+  text-decoration: none;
+  text-align: center;
+  font-family: inherit;
 }
 </style>
-  <!-- Botões Ticto ocultos — aparecem após 7 minutos -->
-  <div id="wrapper-botoes" class="wrapper-botoes" style="display:none;">
-   <button type="button" class="ticto-upsell-button">ativar a proteção dos meus anjos da guarda</button>
- <br>
-   <button type="button"  class="ticto-refuse-button" > Eu não quero ser protegido pelo meu anjo da guarda que jesus enviou</button>
-  </div>
+
+<!-- Botões Ticto ocultos — aparecem após 7 minutos -->
+<div id="wrapper-botoes" class="wrapper-botoes" style="display:none;">
+  <a href="https://pay.hub.la/WeAcNLV7Hhl9S4NRIUV6/upsell" class="ticto-upsell-button">ativar a proteção dos meus anjos da guarda</a>
+  <br>
+  <a href="https://angelsociety.site/donw_1/" class="ticto-refuse-button">Eu não quero ser protegido pelo meu anjo da guarda que jesus enviou</a>
+</div>
 
   <!-- Delay 7 minutos (420 segundos) -->
   <script>
