@@ -10,15 +10,23 @@
       --navy: #16233f;
       --gold: #c9a24b;
       --text: #1a2438;
-      --muted: #5c6478;
+      --muted: #4a5163;
       --border: #e7e1d3;
       --whatsapp: #25d366;
       --decline: #9aa0ad;
+      --bg: #f6efe0;
+      --card: #fffdf8;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; background: #ffffff; color: var(--text); }
-    img { max-width: 100%; display: block; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); }
+    img {
+      max-width: 100%; display: block;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: optimizeQuality;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
 
     .container { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
     section { padding: 3rem 0; }
@@ -37,7 +45,7 @@
     .hero-img-wrap {
       max-width: 560px; margin: 2.6rem auto 0; border-radius: 14px; overflow: hidden;
       border: 1px solid var(--border); display: flex; align-items: center; justify-content: center;
-      background: #f8f6f1; min-height: 200px;
+      background: var(--card); min-height: 200px;
     }
     .hero-img-wrap img { width: 100%; height: auto; object-fit: contain; }
     .img-placeholder {
@@ -47,8 +55,22 @@
     /* ── Presentes ── */
     .gift {
       padding: 1.6rem 0; border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: 110px 1fr; gap: 1.3rem; align-items: start;
     }
     .gift:last-child { border-bottom: none; }
+    .gift-img-wrap {
+      width: 110px; height: 110px; border-radius: 12px; overflow: hidden; flex-shrink: 0;
+      background: var(--card); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gift-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .gift-img-wrap .img-placeholder {
+      font-size: 0.6rem; line-height: 1.5; color: #b3aea0; text-align: center; padding: 0.4rem; font-weight: 300;
+    }
+    @media (max-width: 560px) {
+      .gift { grid-template-columns: 76px 1fr; gap: 0.9rem; }
+      .gift-img-wrap { width: 76px; height: 76px; }
+    }
     .gift h3 {
       font-family: 'Inter', sans-serif; font-weight: 700; font-size: 1.02rem;
       letter-spacing: 0.01em; text-transform: uppercase; color: var(--navy); margin-bottom: 0.6rem;
@@ -97,12 +119,12 @@
     }
 
     /* ── Depoimentos ── */
-    #depoimentos { background: #f8f6f1; }
+    #depoimentos { background: #efe4cc; }
     .testi-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem;
     }
     .testi-card {
-      background: white; border: 1px solid var(--border); border-radius: 12px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
       padding: 1.8rem 1.6rem; text-align: left; display: flex; flex-direction: column;
     }
     .testi-quote {
@@ -129,6 +151,7 @@
     .offer-card {
       max-width: 480px; margin: 0 auto; border: 1px solid var(--border); border-radius: 18px;
       padding: 2.6rem 2.2rem; box-shadow: 0 24px 60px -28px rgba(22,35,63,0.18);
+      background: var(--card);
     }
     .offer-card h2 {
       font-size: clamp(1.3rem, 3.2vw, 1.7rem); margin-bottom: 1.4rem;
@@ -147,7 +170,6 @@
       margin-bottom: 1.8rem;
     }
     .price .value { font-size: clamp(2.4rem, 6vw, 3rem); }
-    .price .period { font-family: 'Inter', sans-serif; font-size: 0.95rem; font-weight: 400; color: var(--muted); }
 
     footer {
       text-align: center; padding: 2.6rem 1.5rem; color: var(--decline); font-size: 0.82rem; font-weight: 300;
@@ -182,32 +204,74 @@
       <h2 class="section-title">Presentes que você recebe diariamente no grupo</h2>
 
       <div class="gift">
-        <h3>Quaresma do Padre Pio</h3>
-        <p>Você vai descobrir como o santo Padre Pio se conectava com seu anjo para realizar milagres e quais orações específicas abrem as portas das bênçãos que vêm do céu.</p>
+        <div class="gift-img-wrap">
+          <img src="images/presentes/quaresma-padre-pio.jpg" alt="Quaresma do Padre Pio" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-placeholder" style="display:none; align-items:center; justify-content:center; height:100%;">images/presentes/<br>quaresma-padre-pio.jpg</div>
+        </div>
+        <div>
+          <h3>Quaresma do Padre Pio</h3>
+          <p>Você vai descobrir como o santo Padre Pio se conectava com seu anjo para realizar milagres e quais orações específicas abrem as portas das bênçãos que vêm do céu.</p>
+        </div>
       </div>
       <div class="gift">
-        <h3>Grimório de São Bento</h3>
-        <p>Faça essa oração de São Bento e receba proteção para você e sua família.</p>
+        <div class="gift-img-wrap">
+          <img src="images/presentes/grimorio-sao-bento.jpg" alt="Grimório de São Bento" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-placeholder" style="display:none; align-items:center; justify-content:center; height:100%;">images/presentes/<br>grimorio-sao-bento.jpg</div>
+        </div>
+        <div>
+          <h3>Grimório de São Bento</h3>
+          <p>Faça essa oração de São Bento e receba proteção para você e sua família.</p>
+        </div>
       </div>
       <div class="gift">
-        <h3>Grimório de São Cipriano <span class="flag">Exclusivo</span></h3>
-        <p>A primeira vez dessa obra no Brasil, e você vai receber ela de graça.</p>
+        <div class="gift-img-wrap">
+          <img src="images/presentes/grimorio-sao-cipriano.jpg" alt="Grimório de São Cipriano" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-placeholder" style="display:none; align-items:center; justify-content:center; height:100%;">images/presentes/<br>grimorio-sao-cipriano.jpg</div>
+        </div>
+        <div>
+          <h3>Grimório de São Cipriano <span class="flag">Exclusivo</span></h3>
+          <p>A primeira vez dessa obra no Brasil, e você vai receber ela de graça.</p>
+        </div>
       </div>
       <div class="gift">
-        <h3>Receitas do Pão Bíblico sem Glúten — o pão que Jesus comia</h3>
-        <p>O pão sem glúten e lactose que Jesus comia, você vai aprender a fazer em casa em menos de 5 minutos.</p>
+        <div class="gift-img-wrap">
+          <img src="images/presentes/pao-biblico.jpg" alt="Receitas do Pão Bíblico sem Glúten" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-placeholder" style="display:none; align-items:center; justify-content:center; height:100%;">images/presentes/<br>pao-biblico.jpg</div>
+        </div>
+        <div>
+          <h3>Receitas do Pão Bíblico sem Glúten — o pão que Jesus comia</h3>
+          <p>O pão sem glúten e lactose que Jesus comia, você vai aprender a fazer em casa em menos de 5 minutos.</p>
+        </div>
       </div>
       <div class="gift">
-        <h3>Café da Manhã com Frei Gilson — orações do Santo Rosário</h3>
-        <p>Todos os dias, palavras e orações com Frei Gilson.</p>
+        <div class="gift-img-wrap">
+          <img src="images/presentes/f1.jpg" alt="Café da Manhã com Frei Gilson" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-placeholder" style="display:none; align-items:center; justify-content:center; height:100%;">images/presentes/<br>cafe-frei-gilson.jpg</div>
+        </div>
+        <div>
+          <h3>Café da Manhã com Frei Gilson — orações do Santo Rosário</h3>
+          <p>Todos os dias, palavras e orações com Frei Gilson.</p>
+        </div>
       </div>
       <div class="gift">
-        <h3>Almoço com Reginaldo Manzotti — palavras de conforto para sua alma</h3>
-        <p>Seu almoço não vai ser mais o mesmo, você vai receber palavras de conforto do Padre Reginaldo Manzotti.</p>
+        <div class="gift-img-wrap">
+          <img src="images/presentes/f3.jpg" alt="Almoço com Reginaldo Manzotti" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-placeholder" style="display:none; align-items:center; justify-content:center; height:100%;">images/presentes/<br>almoco-manzotti.jpg</div>
+        </div>
+        <div>
+          <h3>Almoço com Reginaldo Manzotti — palavras de conforto para sua alma</h3>
+          <p>Seu almoço não vai ser mais o mesmo, você vai receber palavras de conforto do Padre Reginaldo Manzotti.</p>
+        </div>
       </div>
       <div class="gift">
-        <h3>Noite de Paz com Marcelo Rossi — uma oração poderosa para abençoar sua noite</h3>
-        <p>Antes de dormir, tenha sua noite abençoada pelo Padre Marcelo Rossi.</p>
+        <div class="gift-img-wrap">
+          <img src="images/presentes/f2.jpg" alt="Noite de Paz com Marcelo Rossi" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="img-placeholder" style="display:none; align-items:center; justify-content:center; height:100%;">images/presentes/<br>noite-marcelo-rossi.jpg</div>
+        </div>
+        <div>
+          <h3>Noite de Paz com Marcelo Rossi — uma oração poderosa para abençoar sua noite</h3>
+          <p>Antes de dormir, tenha sua noite abençoada pelo Padre Marcelo Rossi.</p>
+        </div>
       </div>
     </div>
 
@@ -312,7 +376,7 @@
           <li>Áudios e mensagens com Frei Gilson, Manzotti e Marcelo Rossi</li>
           <li>Sorteios e prêmios todos os meses</li>
         </ul>
-        <p class="price"><span class="value">R$ 39,90</span> <span class="period">mensal</span></p>
+        <p class="price"><span class="value">R$ 39,90</span></p>
         <a class="btn btn-primary" href="#">
           <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.74.46 3.43 1.32 4.93L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.83 14.13c-.25.7-1.45 1.34-2 1.43-.51.08-1.15.11-1.86-.12-.43-.14-.98-.32-1.69-.62-2.97-1.28-4.91-4.27-5.06-4.47-.15-.2-1.21-1.61-1.21-3.07 0-1.46.77-2.18 1.04-2.48.27-.3.6-.37.8-.37.2 0 .4 0 .57.01.18.01.43-.07.67.51.25.6.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.49-.15.17-.31.39-.45.52-.15.14-.3.3-.13.59.17.3.76 1.25 1.63 2.02 1.12.99 2.06 1.3 2.36 1.45.3.15.47.12.65-.07.18-.2.76-.88.96-1.18.2-.3.4-.25.67-.15.27.1 1.73.81 2.02.96.3.15.5.22.57.34.07.13.07.74-.18 1.44z"/></svg>
           Quero fazer parte agora
