@@ -1,616 +1,238 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cleydiele Barbosa — Sobrancelhas</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nossa Senhora Desatadora de Nós – Ouça a oração das 7 palavras que desatam qualquer nó da sua vida." />
+  <title>Desatadora de Nós – Oração das 7 Palavras</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,700;0,800;1,700;1,800&family=Raleway:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --cream: #f9f3ec;
-      --warm-brown: #6b3f2a;
-      --gold: #c89b5f;
-      --dark: #1a1209;
-      --light-brown: #e8d5c0;
-      --text: #3b2310;
-    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
 
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1.2rem 4rem;
-      background: rgba(249,243,236,0.92); backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(200,155,95,0.2);
-    }
-    .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--warm-brown); }
-    .nav-logo span { color: var(--gold); font-style: italic; }
-    nav ul { list-style: none; display: flex; gap: 2.5rem; }
-    nav ul a { text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); transition: color 0.3s; }
-    nav ul a:hover { color: var(--gold); }
-
-    /* HERO */
-    .hero {
+    body {
+      font-family: 'Raleway', sans-serif;
       min-height: 100vh;
-      display: grid; grid-template-columns: 1fr 1fr;
-      align-items: center; padding: 8rem 4rem 4rem; gap: 4rem;
+      background: linear-gradient(170deg, #1c0800 0%, #2e1400 50%, #1c0800 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 32px 16px 48px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.75);
+      background: #fff8f0;
+    }
+
+    /* Imagem full-width */
+    .img-wrap {
       position: relative;
+      width: 100%;
+      background: #2e1400;
+      overflow: hidden;
     }
-    .hero-eyebrow {
-      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1.5rem;
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
-    h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.6rem, 4.5vw, 4.2rem); line-height: 1.1; color: var(--dark); margin-bottom: 1.5rem; }
-    h1 em { font-style: italic; color: var(--warm-brown); }
-    .hero p { font-size: 1.05rem; line-height: 1.8; color: #5a3e2b; max-width: 480px; margin-bottom: 2.5rem; font-weight: 300; }
 
-    .btn {
-      display: inline-block; padding: 0.9rem 2.4rem;
-      background: var(--warm-brown); color: var(--cream);
-      text-decoration: none; font-size: 0.82rem; letter-spacing: 0.15em;
-      text-transform: uppercase; font-weight: 500; border: none; cursor: pointer;
-      transition: background 0.3s, transform 0.2s; font-family: 'Jost', sans-serif;
-    }
-    .btn:hover { background: var(--dark); transform: translateY(-2px); }
-    .btn-outline { background: transparent; border: 1.5px solid var(--warm-brown); color: var(--warm-brown); margin-left: 1rem; }
-    .btn-outline:hover { background: var(--warm-brown); color: var(--cream); }
-
-    /* HERO IMAGE */
-    .hero-visual { position: relative; animation: fadeUp 1s 0.2s ease both; }
-    .hero-img-main {
-      width: 100%; height: 480px; object-fit: cover;
+    .hero-img {
+      width: 100%;
+      height: auto;
       display: block;
-      filter: brightness(0.9);
-    }
-    .hero-img-overlay {
-      position: absolute; bottom: -24px; left: -24px;
-      background: var(--gold); color: var(--dark);
-      width: 110px; height: 110px; border-radius: 50%;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; text-align: center; line-height: 1.4;
-    }
-    .hero-img-caption {
-      position: absolute; bottom: 0; right: 0;
-      background: var(--warm-brown); color: var(--cream);
-      padding: 1rem 1.5rem;
-      font-family: 'Playfair Display', serif; font-size: 1rem;
     }
 
-    /* GALERIA */
-    #galeria { padding: 0; }
-    .galeria-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; }
-    .galeria-item { position: relative; overflow: hidden; }
-    .galeria-item img {
-      width: 100%; height: 280px; object-fit: cover; display: block;
-      transition: transform 0.5s ease, filter 0.4s;
-      filter: brightness(0.85);
+    .img-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 90px;
+      background: linear-gradient(transparent, #fff8f0);
     }
-    .galeria-item:hover img { transform: scale(1.05); filter: brightness(1); }
-    .galeria-label {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(26,18,9,0.85));
-      padding: 2rem 1.2rem 1rem;
-      color: var(--cream); font-size: 0.8rem; letter-spacing: 0.12em;
-      text-transform: uppercase; font-weight: 500;
-      transform: translateY(100%); transition: transform 0.3s;
+
+    .hero-fallback {
+      width: 100%;
+      height: 240px;
+      background: linear-gradient(135deg, #3d1c08, #6b3010);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
     }
-    .galeria-item:hover .galeria-label { transform: translateY(0); }
 
-    /* SECTIONS */
-    section { padding: 6rem 4rem; }
-    .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); color: var(--dark); margin-bottom: 1.2rem; }
-    .section-sub { font-size: 1rem; line-height: 1.8; color: #5a3e2b; font-weight: 300; max-width: 560px; }
-
-    /* TECNICAS */
-    #tecnicas { background: var(--dark); color: var(--cream); }
-    #tecnicas .section-title { color: var(--cream); }
-    #tecnicas .section-sub { color: rgba(249,243,236,0.7); }
-    .tecnicas-header { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: end; margin-bottom: 4rem; }
-    .tecnicas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: rgba(200,155,95,0.12); }
-
-    .tecnica-card {
-      background: #221509; overflow: hidden;
-      transition: background 0.3s; cursor: default; position: relative;
+    /* Divisor com cruz */
+    .divider-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 28px 0;
     }
-    .tecnica-card-img { width: 100%; height: 180px; object-fit: cover; display: block; filter: brightness(0.6) saturate(0.7); transition: filter 0.4s; }
-    .tecnica-card:hover .tecnica-card-img { filter: brightness(0.8) saturate(1); }
-    .tecnica-card-body { padding: 1.8rem; }
-    .tecnica-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--gold); transition: width 0.4s; }
-    .tecnica-card:hover::before { width: 100%; }
-    .tecnica-number { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: rgba(200,155,95,0.15); line-height: 1; margin-bottom: 0.8rem; }
-    .tecnica-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--cream); margin-bottom: 0.7rem; }
-    .tecnica-card p { font-size: 0.88rem; line-height: 1.7; color: rgba(249,243,236,0.6); font-weight: 300; }
-    .tecnica-tag { display: inline-block; margin-top: 1rem; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
 
-    /* FORMATOS */
-    #formatos { background: var(--cream); }
-    .formatos-layout { display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem; align-items: start; margin-top: 4rem; }
-    .formato-item { display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.8rem 0; border-bottom: 1px solid rgba(107,63,42,0.12); transition: all 0.3s; }
-    .formato-item:hover .formato-icon-wrap { background: var(--warm-brown); color: var(--cream); }
-    .formato-icon-wrap { flex-shrink: 0; width: 52px; height: 52px; border: 1.5px solid var(--light-brown); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; transition: all 0.3s; }
-    .formato-item h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; margin-bottom: 0.3rem; color: var(--dark); }
-    .formato-item p { font-size: 0.85rem; line-height: 1.6; color: #7a5040; font-weight: 300; }
-    .formato-visual { position: sticky; top: 8rem; }
-    .formato-img { width: 100%; height: 400px; object-fit: cover; display: block; }
-    .formato-img-caption { background: var(--warm-brown); color: var(--cream); padding: 1.5rem 2rem; }
-    .formato-img-caption h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.4rem; }
-    .formato-img-caption p { font-size: 0.85rem; opacity: 0.8; font-weight: 300; }
+    .divider-line       { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, #b06820); }
+    .divider-line.right { background: linear-gradient(90deg, #b06820, transparent); }
+    .divider-icon       { color: #b06820; font-size: 15px; }
 
-    /* PASSO A PASSO */
-    #passo-a-passo { background: var(--light-brown); }
-    .steps-with-img { display: grid; grid-template-columns: 1fr 420px; gap: 5rem; align-items: start; margin-top: 4rem; }
-    .step { display: grid; grid-template-columns: 80px 1fr; gap: 2rem; margin-bottom: 2.5rem; align-items: start; }
-    .step-number-col { display: flex; flex-direction: column; align-items: center; }
-    .step-num { width: 56px; height: 56px; background: var(--warm-brown); color: var(--cream); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.3rem; }
-    .step-line { width: 1px; min-height: 36px; flex: 1; background: rgba(107,63,42,0.25); margin-top: 6px; }
-    .step-body { padding-top: 0.5rem; }
-    .step-body h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--dark); }
-    .step-body p { font-size: 0.9rem; line-height: 1.8; color: #5a3e2b; font-weight: 300; margin-bottom: 0.6rem; }
-    .step-tip { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 500; color: var(--warm-brown); background: rgba(107,63,42,0.1); padding: 0.35rem 0.75rem; }
-    .steps-img-col { position: sticky; top: 8rem; }
-    .steps-img-col img { width: 100%; height: 360px; object-fit: cover; display: block; margin-bottom: 3px; }
-    .steps-img-col img:last-child { height: 240px; }
+    /* Conteúdo */
+    .content {
+      padding: 18px 24px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
 
-    /* CUIDADOS */
-    #cuidados { background: var(--cream); }
-    .cuidados-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 4rem; }
-    .cuidados-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .cuidado-card { border: 1.5px solid var(--light-brown); padding: 2rem 1.6rem; transition: border-color 0.3s, transform 0.3s; }
-    .cuidado-card:hover { border-color: var(--gold); transform: translateY(-4px); }
-    .cuidado-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .cuidado-card h4 { font-family: 'Playfair Display', serif; font-size: 1rem; margin-bottom: 0.5rem; color: var(--dark); }
-    .cuidado-card p { font-size: 0.85rem; line-height: 1.7; color: #7a5040; font-weight: 300; }
-    .cuidados-img { width: 100%; height: 500px; object-fit: cover; display: block; }
+    .headline {
+      font-family: 'EB Garamond', serif;
+      font-size: clamp(26px, 7.5vw, 34px);
+      font-weight: 800;
+      color: #1c0800;
+      text-align: center;
+      line-height: 1.25;
+    }
 
-    /* FAQ */
-    #faq { background: var(--warm-brown); color: var(--cream); }
-    #faq .section-title { color: var(--cream); }
-    #faq .section-sub { color: rgba(249,243,236,0.75); }
-    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(249,243,236,0.1); margin-top: 4rem; }
-    .faq-item { background: var(--warm-brown); padding: 2rem; cursor: pointer; transition: background 0.3s; }
-    .faq-item:hover { background: rgba(249,243,236,0.05); }
-    .faq-q { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
-    .faq-q h4 { font-family: 'Playfair Display', serif; font-size: 1rem; line-height: 1.4; color: var(--cream); }
-    .faq-toggle { flex-shrink: 0; width: 28px; height: 28px; border: 1px solid rgba(249,243,236,0.3); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--gold); transition: transform 0.3s; }
-    .faq-item.open .faq-toggle { transform: rotate(45deg); }
-    .faq-a { display: none; font-size: 0.88rem; line-height: 1.7; color: rgba(249,243,236,0.7); font-weight: 300; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(249,243,236,0.1); }
-    .faq-item.open .faq-a { display: block; }
+    .headline em {
+      font-style: italic;
+      color: #8b3e10;
+    }
 
-    /* CONTATO */
-    #contato { background: var(--cream); }
-    .contato-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 4rem; }
-    .contato-info p { font-size: 0.95rem; line-height: 1.8; color: #5a3e2b; font-weight: 300; margin-bottom: 2rem; }
-    .contact-links { display: flex; flex-direction: column; gap: 1rem; }
-    .contact-link { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text); font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
-    .contact-link:hover { color: var(--gold); }
-    .contact-link-icon { width: 44px; height: 44px; background: var(--light-brown); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
-    .contato-form { display: flex; flex-direction: column; gap: 1.2rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-    .form-group label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm-brown); }
-    .form-group input, .form-group select, .form-group textarea { padding: 0.9rem 1rem; border: 1.5px solid var(--light-brown); background: transparent; font-family: 'Jost', sans-serif; font-size: 0.9rem; color: var(--text); outline: none; transition: border-color 0.3s; resize: vertical; }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .subtext {
+      font-size: 12px;
+      font-weight: 800;
+      color: #9a6640;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-align: center;
+    }
 
-    /* FOOTER */
-    footer { background: var(--dark); color: var(--cream); padding: 3rem 4rem; display: flex; justify-content: space-between; align-items: center; }
-    .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.3rem; }
-    .footer-logo span { color: var(--gold); font-style: italic; }
-    footer p { font-size: 0.8rem; opacity: 0.5; }
-    .footer-links { display: flex; gap: 2rem; }
-    .footer-links a { color: rgba(249,243,236,0.5); text-decoration: none; font-size: 0.8rem; transition: color 0.3s; }
-    .footer-links a:hover { color: var(--gold); }
+    /* Botão CTA */
+    .cta-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 17px 20px;
+      background: linear-gradient(135deg, #b85015, #cc6820, #e08030);
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+      font-size: 18px;
+      font-weight: 900;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(160,70,10,0.55);
+      transition: transform 0.15s, box-shadow 0.15s;
+      animation: glowBrown 2.4s ease-in-out infinite;
+    }
 
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .cta-btn:hover  { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(160,70,10,0.75); }
+    .cta-btn:active { transform: translateY(0); }
 
-    @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      nav ul { display: none; }
-      section { padding: 4rem 1.5rem; }
-      .hero { grid-template-columns: 1fr; padding: 7rem 1.5rem 3rem; }
-      .galeria-grid { grid-template-columns: 1fr 1fr; }
-      .tecnicas-header { grid-template-columns: 1fr; }
-      .tecnicas-grid { grid-template-columns: 1fr; }
-      .formatos-layout { grid-template-columns: 1fr; }
-      .steps-with-img { grid-template-columns: 1fr; }
-      .steps-img-col { display: none; }
-      .cuidados-layout { grid-template-columns: 1fr; }
-      .faq-grid { grid-template-columns: 1fr; }
-      .contato-layout { grid-template-columns: 1fr; }
-      .form-row { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 1.5rem; text-align: center; }
-      .step { grid-template-columns: 60px 1fr; }
+    @keyframes glowBrown {
+      0%, 100% { box-shadow: 0 6px 24px rgba(160,70,10,0.50); }
+      50%       { box-shadow: 0 6px 38px rgba(160,70,10,0.88); }
+    }
+
+    .trust {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #a08060;
+    }
+
+    footer {
+      margin-top: 28px;
+      text-align: center;
+      color: rgba(255,255,255,0.42);
+      font-size: 11px;
+      line-height: 2;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.62);
+      text-decoration: underline;
     }
   </style>
+
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-xcod-sck
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
+  <script>
+    window.googlePixelId = "6a052935a823e9c41c568ab7";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel-google.js");
+    document.head.appendChild(a);
+  </script>
 </head>
 <body>
 
-<nav>
-  <div class="nav-logo">Brow<span>Studio</span></div>
-  <ul>
-    <li><a href="#tecnicas">Técnicas</a></li>
-    <li><a href="#formatos">Formatos</a></li>
-    <li><a href="#passo-a-passo">Passo a passo</a></li>
-    <li><a href="#cuidados">Cuidados</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#contato">Contato</a></li>
-  </ul>
-</nav>
+  <div class="card">
 
-<!-- HERO -->
-<section class="hero" id="inicio">
-  <div style="animation: fadeUp 1s ease both;">
-    <div class="hero-eyebrow">Arte & Técnica</div>
-    <h1>A sobrancelha<br>perfeita começa<br>com a <em>técnica certa</em></h1>
-    <p>Aprenda as principais técnicas de design e embelezamento de sobrancelhas — do mapeamento ao acabamento final — com dicas profissionais para todos os formatos de rosto.</p>
-    <a href="#tecnicas" class="btn">Explorar técnicas</a>
-    <a href="#passo-a-passo" class="btn btn-outline">Passo a passo</a>
-  </div>
+    <div class="img-wrap">
+      <img
+        class="hero-img"
+        src="des1.png"
+        alt="Nossa Senhora Desatadora de Nós"
+        onerror="this.outerHTML='<div class=\'hero-fallback\'>🙏</div>'"
+      />
+      <div class="img-overlay"></div>
+    </div>
 
-  <div class="hero-visual">
-    <img class="hero-img-main" src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80" alt="Design de sobrancelhas profissional">
-    <div class="hero-img-overlay">✦ Guia<br>Completo</div>
-    <div class="hero-img-caption">Mapeamento profissional</div>
-  </div>
-</section>
+    <div class="divider-wrap">
+      <div class="divider-line"></div>
+      <span class="divider-icon">✝</span>
+      <div class="divider-line right"></div>
+    </div>
 
-<!-- GALERIA -->
-<div id="galeria">
-  <div class="galeria-grid">
-    <div class="galeria-item">
-      <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80" alt="Henna sobrancelha">
-      <div class="galeria-label">Henna</div>
-    </div>
-    <div class="galeria-item">
-      <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=600&q=80" alt="Design sobrancelha">
-      <div class="galeria-label">Design</div>
-    </div>
-    <div class="galeria-item">
-      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80" alt="Beleza sobrancelha">
-      <div class="galeria-label">Laminação</div>
-    </div>
-    <div class="galeria-item">
-      <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&q=80" alt="Maquiagem sobrancelha">
-      <div class="galeria-label">Micropigmentação</div>
+    <div class="content">
+
+      <h1 class="headline">
+        Ela desata os nós que<br /><em>você já não consegue<br />desatar sozinho</em>
+      </h1>
+
+      <p class="subtext">Ouça a oração das 7 palavras</p>
+
+      <a href="https://angelsociety.site/vsl-1" class="cta-btn" id="cta-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
+        </svg>
+        Ouvir a Oração Agora
+      </a>
+
+      <div class="trust">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="#a08060" viewBox="0 0 16 16">
+          <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+        </svg>
+        100% gratuito · acesso imediato
+      </div>
+
     </div>
   </div>
-</div>
 
-<!-- TECNICAS -->
-<section id="tecnicas">
-  <div class="tecnicas-header">
-    <div>
-      <div class="section-label">Principais métodos</div>
-      <h2 class="section-title">Técnicas de<br>Design</h2>
-    </div>
-    <p class="section-sub">Cada técnica entrega um resultado diferente. Conheça as opções para indicar o método mais adequado para cada cliente.</p>
-  </div>
+  <footer>
+    &copy; 2026 Desatadora de Nós. Todos os direitos reservados.<br />
+    <a href="termos.html">Termos de Uso</a> &nbsp;·&nbsp; <a href="privacidade.html">Política de Privacidade</a>
+  </footer>
 
-  <div class="tecnicas-grid">
-    <div class="tecnica-card">
-      <img class="tecnica-card-img" src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600&q=80" alt="Henna sobrancelha">
-      <div class="tecnica-card-body">
-        <div class="tecnica-number">01</div>
-        <h3>Henna Fio a Fio</h3>
-        <p>Corante natural que pigmenta pele e pelos. Dura até 30 dias na pele e 3 meses nos pelos, corrigindo falhas e uniformizando a cor.</p>
-        <span class="tecnica-tag">Semi-permanente</span>
-      </div>
-    </div>
-    <div class="tecnica-card">
-      <img class="tecnica-card-img" src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600&q=80" alt="Design linha sobrancelha">
-      <div class="tecnica-card-body">
-        <div class="tecnica-number">02</div>
-        <h3>Design com Linha</h3>
-        <p>Remoção precisa e higiênica com linha de costura torcida. Define contornos e remove pelos finos. Durabilidade de 2 a 4 semanas.</p>
-        <span class="tecnica-tag">Remoção de pelos</span>
-      </div>
-    </div>
-    <div class="tecnica-card">
-      <img class="tecnica-card-img" src="https://images.unsplash.com/photo-1515688594390-b649af70d282?w=600&q=80" alt="Cera quente sobrancelha">
-      <div class="tecnica-card-body">
-        <div class="tecnica-number">03</div>
-        <h3>Cera Quente</h3>
-        <p>Remove pela raiz com cera aquecida, ideal para grandes áreas. Acabamento limpo com durabilidade de até 4 semanas.</p>
-        <span class="tecnica-tag">Remoção de pelos</span>
-      </div>
-    </div>
-    <div class="tecnica-card">
-      <img class="tecnica-card-img" src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&q=80" alt="Micropigmentação sobrancelha">
-      <div class="tecnica-card-body">
-        <div class="tecnica-number">04</div>
-        <h3>Micropigmentação</h3>
-        <p>Pigmento inserido na derme superficial. Efeito fio a fio ou sombreado, preenchendo falhas com duração de 1 a 3 anos.</p>
-        <span class="tecnica-tag">Permanente</span>
-      </div>
-    </div>
-    <div class="tecnica-card">
-      <img class="tecnica-card-img" src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600&q=80" alt="Tinta sobrancelha">
-      <div class="tecnica-card-body">
-        <div class="tecnica-number">05</div>
-        <h3>Design com Tinta</h3>
-        <p>Coloração temporária que define contorno e preenche falhas. Grande variedade de cores e resultado preciso. Dura de 3 a 7 dias.</p>
-        <span class="tecnica-tag">Temporário</span>
-      </div>
-    </div>
-    <div class="tecnica-card">
-      <img class="tecnica-card-img" src="https://images.unsplash.com/photo-1552693673-1bf958298935?w=600&q=80" alt="Laminação sobrancelha">
-      <div class="tecnica-card-body">
-        <div class="tecnica-number">06</div>
-        <h3>Laminação</h3>
-        <p>Alinha, levanta e fixa os pelos no sentido desejado. Efeito de sobrancelha cheia sem remoção. Dura de 6 a 8 semanas.</p>
-        <span class="tecnica-tag">Tratamento</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FORMATOS -->
-<section id="formatos">
-  <div class="section-label">Design por tipo de rosto</div>
-  <h2 class="section-title">Formatos de Sobrancelha</h2>
-
-  <div class="formatos-layout">
-    <div>
-      <div class="formato-item">
-        <div class="formato-icon-wrap">🔷</div>
-        <div>
-          <h4>Rosto Oval</h4>
-          <p>Qualquer formato funciona bem. Prefira sobrancelhas com arco suave e levemente anguladas para valorizar a harmonia natural.</p>
-        </div>
-      </div>
-      <div class="formato-item">
-        <div class="formato-icon-wrap">⬜</div>
-        <div>
-          <h4>Rosto Quadrado</h4>
-          <p>Sobrancelhas arqueadas e com início mais alto suavizam a mandíbula marcada. Evite sobrancelhas retas que destacam os ângulos.</p>
-        </div>
-      </div>
-      <div class="formato-item">
-        <div class="formato-icon-wrap">⬡</div>
-        <div>
-          <h4>Rosto Redondo</h4>
-          <p>Arco alto e angulado alonga visualmente o rosto. Evite formatos muito curvos que acentuam a redondeza.</p>
-        </div>
-      </div>
-      <div class="formato-item">
-        <div class="formato-icon-wrap">🔺</div>
-        <div>
-          <h4>Rosto Coração</h4>
-          <p>Arco baixo e sobrancelhas mais cheias equilibram a testa larga com o queixo fino. Evite arcos muito altos.</p>
-        </div>
-      </div>
-      <div class="formato-item">
-        <div class="formato-icon-wrap">🔻</div>
-        <div>
-          <h4>Rosto Losango</h4>
-          <p>Sobrancelhas retas ou com arco suave equilibram as maçãs proeminentes. O início mais reto alarga visualmente a testa.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="formato-visual">
-      <img class="formato-img" src="https://images.unsplash.com/photo-1503236823255-94609f598e71?w=700&q=80" alt="Análise de formato de rosto sobrancelha">
-      <div class="formato-img-caption">
-        <h3>Análise do formato de rosto</h3>
-        <p>Cada rosto é único — o design ideal respeita as proporções naturais e realça a beleza individual.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PASSO A PASSO -->
-<section id="passo-a-passo">
-  <div class="section-label">Aprenda na prática</div>
-  <h2 class="section-title">Passo a Passo<br>do Design</h2>
-
-  <div class="steps-with-img">
-    <div>
-      <div class="step">
-        <div class="step-number-col"><div class="step-num">1</div><div class="step-line"></div></div>
-        <div class="step-body">
-          <h3>Higienização e Preparo</h3>
-          <p>Limpe com água micelar ou demaquilante para remover maquiagem e oleosidade. Pele limpa garante maior precisão e melhor adesão.</p>
-          <span class="step-tip">💡 Use produto sem óleo para não interferir na tinta ou henna</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-number-col"><div class="step-num">2</div><div class="step-line"></div></div>
-        <div class="step-body">
-          <h3>Mapeamento dos 3 Pontos</h3>
-          <p>Marque o <strong>Início</strong> (asa do nariz), o <strong>Arco</strong> (alinhado com a pupila) e o <strong>Final</strong> (canto externo do olho) com lápis branco.</p>
-          <span class="step-tip">💡 Use régua ou compasso de sobrancelha para maior precisão</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-number-col"><div class="step-num">3</div><div class="step-line"></div></div>
-        <div class="step-body">
-          <h3>Traçado do Contorno</h3>
-          <p>Com base nos três pontos e no formato de rosto, trace o contorno superior e inferior respeitando os pelos existentes.</p>
-          <span class="step-tip">💡 Trace as duas sobrancelhas antes de remover qualquer pelo</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-number-col"><div class="step-num">4</div><div class="step-line"></div></div>
-        <div class="step-body">
-          <h3>Remoção dos Pelos</h3>
-          <p>Remova os pelos fora do contorno com a técnica escolhida, em partes, verificando a simetria constantemente com boa iluminação.</p>
-          <span class="step-tip">💡 Verifique a simetria com a cliente em posição ereta</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-number-col"><div class="step-num">5</div><div class="step-line"></div></div>
-        <div class="step-body">
-          <h3>Preenchimento e Coloração</h3>
-          <p>Aplique tinta, henna ou pigmento conforme a técnica. Preencha falhas, uniforme a cor e respeite o tempo de ação de cada produto.</p>
-          <span class="step-tip">💡 Misture cores para personalizar o tom ideal de cada cliente</span>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-number-col"><div class="step-num">6</div></div>
-        <div class="step-body">
-          <h3>Finalização e Hidratação</h3>
-          <p>Remova o produto, limpe suavemente e aplique gel finalizador ou óleo nos fios. Oriente a cliente sobre os cuidados pós-design.</p>
-          <span class="step-tip">💡 Fotografe o resultado para o portfólio e compare com o antes</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="steps-img-col">
-      <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=600&q=80" alt="Profissional fazendo design de sobrancelha">
-      <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=80" alt="Resultado design sobrancelha">
-    </div>
-  </div>
-</section>
-
-<!-- CUIDADOS -->
-<section id="cuidados">
-  <div class="section-label">Pós-design</div>
-  <h2 class="section-title">Cuidados Essenciais</h2>
-
-  <div class="cuidados-layout">
-    <div class="cuidados-grid">
-      <div class="cuidado-card">
-        <div class="cuidado-icon">💧</div>
-        <h4>Evite água nas primeiras 24h</h4>
-        <p>Após henna ou tinta, mantenha a região seca. A umidade interfere na fixação do pigmento e reduz a durabilidade.</p>
-      </div>
-      <div class="cuidado-card">
-        <div class="cuidado-icon">☀️</div>
-        <h4>Proteção solar</h4>
-        <p>O sol desbota o pigmento. Use protetor solar na região nas primeiras 48 horas após o procedimento.</p>
-      </div>
-      <div class="cuidado-card">
-        <div class="cuidado-icon">🚫</div>
-        <h4>Sem esfoliação</h4>
-        <p>Evite esfoliantes, ácidos e maquiagem por pelo menos 48 horas. Esses produtos aceleram a remoção do pigmento.</p>
-      </div>
-      <div class="cuidado-card">
-        <div class="cuidado-icon">🌙</div>
-        <h4>Hidratação noturna</h4>
-        <p>Uma gota de óleo de rícino ou argan nos fios antes de dormir nutre e estimula o crescimento.</p>
-      </div>
-    </div>
-    <img class="cuidados-img" src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=700&q=80" alt="Cuidados com sobrancelha">
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
-  <div class="section-label">Dúvidas frequentes</div>
-  <h2 class="section-title">Perguntas & Respostas</h2>
-  <p class="section-sub">As dúvidas mais comuns sobre técnicas e cuidados com sobrancelhas.</p>
-
-  <div class="faq-grid">
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><h4>Qual a diferença entre henna e tinta?</h4><div class="faq-toggle">+</div></div>
-      <div class="faq-a">A henna é natural, pigmenta pele e pelos com até 30 dias de duração. A tinta é sintética, dura menos (3 a 7 dias) mas tem maior variedade de cores e resultado mais preciso nos fios.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><h4>Com que frequência devo fazer o design?</h4><div class="faq-toggle">+</div></div>
-      <div class="faq-a">Design simples: a cada 2–3 semanas. Henna: a cada 3–4 semanas. Laminação: a cada 6–8 semanas. Recomende sempre a manutenção antes que os pelos percam o formato.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><h4>Posso fazer design com pele sensível?</h4><div class="faq-toggle">+</div></div>
-      <div class="faq-a">Sim, mas faça teste de alergia 48h antes. Para peles muito sensíveis, evite cera quente e prefira a remoção com linha ou pinça.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><h4>A laminação danifica os pelos?</h4><div class="faq-toggle">+</div></div>
-      <div class="faq-a">Quando feita corretamente, não danifica. Não repita em menos de 6 semanas. Hidratação pós-procedimento é fundamental para manter os fios saudáveis.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><h4>Como escolher o formato ideal para o rosto?</h4><div class="faq-toggle">+</div></div>
-      <div class="faq-a">Analise o formato de rosto, estrutura óssea e preferências da cliente. Use a tabela de formatos como guia, mas sempre personalize. O equilíbrio visual é o mais importante.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q"><h4>Preciso de curso para aprender as técnicas?</h4><div class="faq-toggle">+</div></div>
-      <div class="faq-a">Cursos presenciais são recomendados para micropigmentação e laminação. Para design básico, guias ajudam — mas sempre pratique em manequins antes de atender clientes.</div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTATO -->
-<section id="contato">
-  <div class="section-label">Fale conosco</div>
-  <h2 class="section-title">Entre em Contato</h2>
-
-  <div class="contato-layout">
-    <div class="contato-info">
-      <p>Tem dúvidas sobre alguma técnica, quer agendar uma aula prática ou trocar experiências? Adoramos conversar sobre o universo das sobrancelhas!</p>
-      <div class="contact-links">
-        <a href="mailto:contato@seudominio.com.br" class="contact-link">
-          <div class="contact-link-icon">✉️</div>
-          contato@seudominio.com.br
-        </a>
-        <a href="https://wa.me/5511999999999" class="contact-link" target="_blank">
-          <div class="contact-link-icon">📱</div>
-          WhatsApp (clique para abrir)
-        </a>
-        <a href="#" class="contact-link">
-          <div class="contact-link-icon">📍</div>
-          Coqueiros, Florianópolis — SC
-        </a>
-      </div>
-    </div>
-
-    <div class="contato-form">
-      <div class="form-row">
-        <div class="form-group"><label>Nome</label><input type="text" placeholder="Seu nome"></div>
-        <div class="form-group"><label>E-mail</label><input type="email" placeholder="seu@email.com"></div>
-      </div>
-      <div class="form-group">
-        <label>Assunto</label>
-        <select>
-          <option value="">Selecione...</option>
-          <option>Dúvida sobre técnica</option>
-          <option>Agendamento de aula</option>
-          <option>Parceria profissional</option>
-          <option>Outro</option>
-        </select>
-      </div>
-      <div class="form-group"><label>Mensagem</label><textarea rows="4" placeholder="Sua mensagem..."></textarea></div>
-      <button class="btn" type="button">Enviar mensagem</button>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-logo">Brow<span>Studio</span></div>
-  <div style="text-align:center;">
-    <p style="opacity:1; font-size:0.85rem; font-family:'Playfair Display',serif; color:var(--gold); margin-bottom:0.4rem;">Cleydiele Barbosa de Andrade</p>
-    <p>CNPJ 43.820.548/0001-90</p>
-    <p>Coqueiros, Florianópolis — SC</p>
-    <p style="margin-top:0.6rem;">© 2025 — Todos os direitos reservados</p>
-  </div>
-  <div class="footer-links">
-    <a href="#tecnicas">Técnicas</a>
-    <a href="#formatos">Formatos</a>
-    <a href="#contato">Contato</a>
-  </div>
-</footer>
-
-<script>
-  function toggleFaq(el) { el.classList.toggle('open'); }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.style.opacity = '1';
-        e.target.style.transform = 'translateY(0)';
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.tecnica-card, .formato-item, .cuidado-card, .galeria-item').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    observer.observe(el);
-  });
-</script>
-
-
-</body></html>
+  <script>
+    (function () {
+      var params = window.location.search;
+      if (!params) return;
+      var btn = document.getElementById('cta-btn');
+      var base = btn.href;
+      btn.href = base + (base.indexOf('?') !== -1 ? '&' : '?') + params.slice(1);
+    })();
+  </script>
+</body>
+</html>
