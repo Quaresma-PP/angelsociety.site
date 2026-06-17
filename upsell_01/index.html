@@ -156,16 +156,17 @@
 .upsell-button {
   display: block;
   width: calc(100% - 32px);
-  max-width: 520px;              /* menor que antes */
+  max-width: 600px;
   margin: 0 auto;
-  padding: 16px 22px;            /* mais enxuto */
+  padding: 16px 22px;
   background: #1FA85C;
   color: #fff;
-  font-size: clamp(14px, 3.2vw, 16px);  /* fonte reduzida */
+  font-size: clamp(11px, 3vw, 16px);  /* reduz no mobile pra caber em 1 linha */
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   line-height: 1.3;
+  white-space: nowrap;                /* ← não quebra linha */
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -189,26 +190,27 @@
 
 .refuse-button {
   display: block;
-  max-width: 280px;              /* força quebrar em 2 linhas, sem esticar */
+  width: fit-content;
   margin: 16px auto 0;
   background: none;
   border: none;
   color: #999;
-  font-size: clamp(11px, 2.8vw, 12px);
+  font-size: clamp(10px, 2.6vw, 12px);  /* menor pra caber em 1 linha */
   line-height: 1.4;
   padding: 0;
+  white-space: nowrap;                  /* ← não quebra linha */
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   letter-spacing: 0.02em;
   text-align: center;
-  text-decoration: underline;    /* sublinha só o texto, não a linha toda */
+  text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 @media (max-width: 380px) {
   .upsell-button {
-    padding: 14px 16px;
+    padding: 14px 12px;
   }
 }
 </style>
@@ -223,7 +225,6 @@
     Eu não quero ser protegido pelo meu anjo da guarda que jesus enviou
   </a>
 </div>
-
   <!-- Delay 7 minutos (420 segundos) -->
   <script>
     const delaySegundos = 264;
