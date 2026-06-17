@@ -156,32 +156,39 @@
 <style>
 .ticto-upsell-button {
   display: block;
-  width: 100%;
-  padding: 20px 24px;
-  background: #1D9E75;
+  width: calc(100% - 32px);
+  margin: 0 16px;
+  padding: 22px 24px;
+  background: #1FA85C;            /* verde Hubla da imagem */
   color: #fff;
-  font-size: clamp(12px, 2.5vw, 15px);
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  line-height: 1.4;
+  font-size: clamp(15px, 4vw, 19px);
+  font-weight: 700;
+  text-transform: uppercase;      /* ← deixa tudo em CAPSLOCK */
+  letter-spacing: 0.04em;
+  line-height: 1.3;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
+  box-shadow: 0 6px 16px rgba(31, 168, 92, 0.35);
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
-  transition: background 0.15s, transform 0.1s;
-  margin: 0 16px;          /* ← isso aqui */
-  width: calc(100% - 32px); /* ← compensa o margin */
+  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
   /* ajustes pro <a> ficar igual ao <button> */
   text-decoration: none;
   text-align: center;
   box-sizing: border-box;
   font-family: inherit;
 }
-.ticto-upsell-button:active {
-  background: #0F6E56;
-  transform: scale(0.97);
+.ticto-upsell-button:hover {
+  background: #1B9551;
+  box-shadow: 0 8px 20px rgba(31, 168, 92, 0.45);
 }
+.ticto-upsell-button:active {
+  background: #16793F;
+  transform: scale(0.98);
+  box-shadow: 0 3px 10px rgba(31, 168, 92, 0.3);
+}
+
 .ticto-refuse-button {
   display: block;
   width: fit-content;
@@ -197,10 +204,17 @@
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   letter-spacing: 0.03em;
-  /* ajustes pro <a> ficar igual ao <button> */
   text-decoration: none;
   text-align: center;
   font-family: inherit;
+}
+
+/* mobile bem pequeno */
+@media (max-width: 380px) {
+  .ticto-upsell-button {
+    padding: 18px 16px;
+    border-radius: 12px;
+  }
 }
 </style>
 
