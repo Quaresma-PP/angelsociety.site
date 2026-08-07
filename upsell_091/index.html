@@ -203,7 +203,49 @@
 
 <!-- Botões ocultos — aparecem após 7 minutos -->
 <div id="wrapper-botoes" class="wrapper-botoes" style="display:none;">
- c:\Users\User\OneDrive\Área de Trabalho\funill novena\upsell_91
+<div>
+ <meta charset="UTF-8">
+   <cakto-upsell-buttons>
+      <cakto-upsell-accept
+        bg-color="#0f7865"
+        text-color="#ffffff"
+        upsell-accept-url="https://angelsociety.site/upsell_092"
+        offer-id="3bdpxb7"
+        app-base-url="https://app.cakto.com.br"
+        offer-type="upsell"
+        upsell-reject-url="https://angelsociety.site/donwsell_0101"   
+      >
+        ativar a proteção dos meus anjos da guarda
+      </cakto-upsell-accept>
+      <cakto-upsell-reject
+        upsell-reject-url="https://angelsociety.site/donwsell_0101"       
+      >
+        Eu não quero ser protegido pelo meu anjo da guarda que jesus enviou
+      </cakto-upsell-reject>
+    </cakto-upsell-buttons>  
+    
+
+     <!-- Descomente o código abaixo para estilzar o css dos botões -->
+      <!-- <style>
+          /* Botão de aceitar upsell */
+          cakto-upsell-accept::part(button) {
+              background-color: red;
+              color: white;
+              /* Ajuste do tamanho do botão 
+              Descomente o código abaixo para definir um tamanho customizado para o botão */
+              /* width: 100vw; */
+          }
+
+          /* Botão de rejeitar upsell */
+          cakto-upsell-reject::part(button) {
+              background-color: blue;
+              color: white;
+          }
+      </style> -->
+
+  <script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
+ </div>
+
 </div>
   <!-- Delay 7 minutos (420 segundos) -->
   <script>
