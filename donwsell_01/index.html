@@ -421,7 +421,7 @@
       width: 100%;
       box-sizing: border-box;
       padding: 18px 16px;
-      background: #1D9E75;
+      background: #16a34a;
       color: #fff;
       font-size: clamp(14px, 4vw, 17px);
       font-weight: 700;
@@ -433,12 +433,29 @@
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
-      transition: background 0.15s, transform 0.1s;
+      transition: background 0.15s;
+      animation: pulseVerde 2.2s ease-in-out infinite;
+    }
+    .ticto-upsell-button:hover {
+      background: #15803d;
     }
     .ticto-upsell-button:active {
       background: #0F6E56;
       transform: scale(0.97);
+      animation: none;
     }
+
+    @keyframes pulseVerde {
+      0%   { transform: scale(1);     box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); }
+      70%  { transform: scale(1.012); box-shadow: 0 0 0 8px rgba(22, 163, 74, 0); }
+      100% { transform: scale(1);     box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+    }
+
+    /* Respeita quem prefere menos animação (acessibilidade) */
+    @media (prefers-reduced-motion: reduce) {
+      .ticto-upsell-button { animation: none; }
+    }
+
     .ticto-refuse-button {
       display: block;
       width: fit-content;
@@ -600,7 +617,7 @@
     </div>
 
    
-      <div id="wrapper-botoes" class="wrapper-botoes" style="display:block;">
+      <div id="wrapper-botoes-2" class="wrapper-botoes" style="display:block;">
   <a href="https://pay.hub.la/zCxQawxIxUoDtkx19y8n/upsell" class="ticto-upsell-button">AMÉM! Aceito essa proteção do arcanjo miguel</a>
   <a href="https://angelsociety.site/donwsell_02/" class="ticto-refuse-button">Quero ficar sem proteção contra inveja, mal olhado e enfermidades</a>
 </div>
