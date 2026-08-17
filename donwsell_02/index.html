@@ -136,9 +136,10 @@
     /* ── Ticto Buttons ── */
     .wrapper-botoes {
       width: 100%;
+      max-width: 480px;
+      margin: 32px auto 0;
       box-sizing: border-box;
-      text-align: left;
-      margin-top: 32px;
+      text-align: center;
     }
 
     .ticto-upsell-button {
@@ -146,8 +147,10 @@
       width: 100%;
       box-sizing: border-box;
       padding: 18px 16px;
-      background: #1D9E75;
+      background: #16a34a;
       color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      text-decoration: none;
       font-size: clamp(14px, 4vw, 17px);
       font-weight: 700;
       letter-spacing: 0.03em;
@@ -158,23 +161,43 @@
       cursor: pointer;
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
-      transition: background 0.15s, transform 0.1s;
+      transition: background 0.15s;
+      animation: pulseVerde 2.2s ease-in-out infinite;
+    }
+
+    .ticto-upsell-button:hover {
+      background: #15803d;
     }
 
     .ticto-upsell-button:active {
       background: #0F6E56;
       transform: scale(0.97);
+      animation: none;
+    }
+
+    @keyframes pulseVerde {
+      0%   { transform: scale(1);     box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.4); }
+      70%  { transform: scale(1.012); box-shadow: 0 0 0 8px rgba(22, 163, 74, 0); }
+      100% { transform: scale(1);     box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+    }
+
+    /* Respeita quem prefere menos animação (acessibilidade) */
+    @media (prefers-reduced-motion: reduce) {
+      .ticto-upsell-button { animation: none; }
     }
 
     .ticto-refuse-button {
       display: block;
       width: fit-content;
+      max-width: 100%;
       margin: 18px auto 0;
       background: none;
       border: none;
       border-bottom: 1px solid #aaa;
       border-radius: 0;
       color: #aaa;
+      font-family: Arial, Helvetica, sans-serif;
+      text-decoration: none;
       font-size: clamp(11px, 3.5vw, 13px);
       padding: 2px 0;
       cursor: pointer;
