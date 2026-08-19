@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Espera um pouco... Grimório dos Arcanjos</title>
 
- 
-  
   <style>
     * {
       margin: 0;
@@ -395,52 +393,12 @@
       margin-bottom: 18px;
     }
 
-    /* ── Ticto Buttons ── */
+    /* ── Cakto Buttons Wrapper ── */
     .wrapper-botoes {
       width: 100%;
       box-sizing: border-box;
-      text-align: left;
-    }
-
-    .ticto-upsell-button {
-      display: block;
-      width: 100%;
-      box-sizing: border-box;
-      padding: 18px 16px;
-      background: #1D9E75;
-      color: #fff;
-      font-size: clamp(14px, 4vw, 17px);
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      line-height: 1.4;
       text-align: center;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
-      transition: background 0.15s, transform 0.1s;
-    }
-    .ticto-upsell-button:active {
-      background: #0F6E56;
-      transform: scale(0.97);
-    }
-    .ticto-refuse-button {
-      display: block;
-      width: fit-content;
-      margin: 18px auto 0;
-      background: none;
-      border: none;
-      border-bottom: 1px solid #aaa;
-      border-radius: 0;
-      color: #aaa;
-      font-size: clamp(11px, 3.5vw, 13px);
-      padding: 2px 0;
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
-      letter-spacing: 0.03em;
-      text-align: center;
+      margin: 24px 0;
     }
 
     /* ── Responsive ── */
@@ -460,7 +418,7 @@
       }
 
       .container {
-        padding: 20px 10px 48px;
+        padding: 20px 16px 48px;
       }
 
       .price-box {
@@ -469,29 +427,12 @@
       }
 
       .wrapper-botoes {
-        margin: 0;
+        margin: 20px 0;
         padding: 0;
         width: 100%;
       }
-
-      .ticto-upsell-button {
-        width: 100% !important;
-        box-sizing: border-box !important;
-        margin: 0 !important;
-        padding: 16px 8px;
-        font-size: 15px;
-        border-radius: 10px;
-      }
-
-      .ticto-refuse-button {
-        font-size: 12px;
-        max-width: 100%;
-        text-align: center;
-        word-break: break-word;
-      }
     }
   </style>
-   
 </head>
 <body>
 
@@ -502,7 +443,7 @@
 
   <div class="container">
 
-     <!-- Main Headline -->
+    <!-- Main Headline -->
     <h1 class="main-headline">
       Espera um pouco…<br>
       <span class="highlight-green">Antes de sair,</span> Deus tem uma<br>
@@ -547,51 +488,24 @@
       <img src="images/grimorio.png" alt="Grimório dos Arcanjos" style="max-width: 100%; width: 420px; border-radius: 10px; box-shadow: 0 8px 32px rgba(0,0,0,0.35);" />
     </div>
 
-    
-      <div id="wrapper-botoes" class="wrapper-botoes" style="display:block;">
-  <div>
- <meta charset="UTF-8">
-   <cakto-upsell-buttons>
-      <cakto-upsell-accept
-        bg-color="#0f7865"
-        text-color="#ffffff"
-        upsell-accept-url="https://angelsociety.site/upsell_092"
-        offer-id="v78dnth"
-        app-base-url="https://app.cakto.com.br"
-        offer-type="downsell"
-        upsell-reject-url="https://angelsociety.site/donwsell_0102"   
-      >
-       AMÉM! Aceito essa proteção do arcanjo miguel
-      </cakto-upsell-accept>
-      <cakto-upsell-reject
-        upsell-reject-url="https://angelsociety.site/donwsell_0102"       
-      >
-       Quero ficar sem proteção contra inveja, mal olhado e enfermidades
-      </cakto-upsell-reject>
-    </cakto-upsell-buttons>  
-    
-
-     <!-- Descomente o código abaixo para estilzar o css dos botões -->
-      <!-- <style>
-          /* Botão de aceitar upsell */
-          cakto-upsell-accept::part(button) {
-              background-color: red;
-              color: white;
-              /* Ajuste do tamanho do botão 
-              Descomente o código abaixo para definir um tamanho customizado para o botão */
-              /* width: 100vw; */
-          }
-
-          /* Botão de rejeitar upsell */
-          cakto-upsell-reject::part(button) {
-              background-color: blue;
-              color: white;
-          }
-      </style> -->
-
-  <script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
- </div>
-</div>
+    <!-- Botões Cakto (bloco 1) -->
+    <div class="wrapper-botoes">
+      <cakto-upsell-buttons>
+        <cakto-upsell-accept
+          bg-color="#0f7865"
+          text-color="#ffffff"
+          upsell-accept-url="https://angelsociety.site/upsell_092"
+          offer-id="v78dnth"
+          app-base-url="https://app.cakto.com.br"
+          offer-type="downsell"
+          upsell-reject-url="https://angelsociety.site/donwsell_0102">
+          AMÉM! Aceito essa proteção do arcanjo miguel
+        </cakto-upsell-accept>
+        <cakto-upsell-reject
+          upsell-reject-url="https://angelsociety.site/donwsell_0102">
+          Quero ficar sem proteção contra inveja, mal olhado e enfermidades
+        </cakto-upsell-reject>
+      </cakto-upsell-buttons>
     </div>
 
     <!-- Benefits -->
@@ -625,51 +539,24 @@
       <img src="images/grimorio.png" alt="Grimório dos Arcanjos" style="max-width: 100%; width: 420px; border-radius: 10px; box-shadow: 0 8px 32px rgba(0,0,0,0.35);" />
     </div>
 
-    
-      <div id="wrapper-botoes" class="wrapper-botoes" style="display:block;">
-  <div>
- <meta charset="UTF-8">
-   <cakto-upsell-buttons>
-      <cakto-upsell-accept
-        bg-color="#0f7865"
-        text-color="#ffffff"
-        upsell-accept-url="https://angelsociety.site/upsell_092"
-        offer-id="v78dnth"
-        app-base-url="https://app.cakto.com.br"
-        offer-type="downsell"
-        upsell-reject-url="https://angelsociety.site/donwsell_0102"   
-      >
-        AMÉM! Aceito essa proteção do arcanjo miguel
-      </cakto-upsell-accept>
-      <cakto-upsell-reject
-        upsell-reject-url="https://angelsociety.site/donwsell_0102"       
-      >
-        Quero ficar sem proteção contra inveja, mal olhado e enfermidades
-      </cakto-upsell-reject>
-    </cakto-upsell-buttons>  
-    
-
-     <!-- Descomente o código abaixo para estilzar o css dos botões -->
-      <!-- <style>
-          /* Botão de aceitar upsell */
-          cakto-upsell-accept::part(button) {
-              background-color: red;
-              color: white;
-              /* Ajuste do tamanho do botão 
-              Descomente o código abaixo para definir um tamanho customizado para o botão */
-              /* width: 100vw; */
-          }
-
-          /* Botão de rejeitar upsell */
-          cakto-upsell-reject::part(button) {
-              background-color: blue;
-              color: white;
-          }
-      </style> -->
-
-  <script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
- </div>
-</div>
+    <!-- Botões Cakto (bloco 2) -->
+    <div class="wrapper-botoes">
+      <cakto-upsell-buttons>
+        <cakto-upsell-accept
+          bg-color="#0f7865"
+          text-color="#ffffff"
+          upsell-accept-url="https://angelsociety.site/upsell_092"
+          offer-id="v78dnth"
+          app-base-url="https://app.cakto.com.br"
+          offer-type="downsell"
+          upsell-reject-url="https://angelsociety.site/donwsell_0102">
+          AMÉM! Aceito essa proteção do arcanjo miguel
+        </cakto-upsell-accept>
+        <cakto-upsell-reject
+          upsell-reject-url="https://angelsociety.site/donwsell_0102">
+          Quero ficar sem proteção contra inveja, mal olhado e enfermidades
+        </cakto-upsell-reject>
+      </cakto-upsell-buttons>
     </div>
 
     <!-- Footer -->
@@ -680,5 +567,9 @@
     </p>
 
   </div>
+
+  <!-- Script Cakto: carregado UMA vez, no fim do body -->
+  <script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
+
 </body>
 </html>
