@@ -204,11 +204,11 @@
 <!-- Botões ocultos — aparecem após 7 minutos -->
 <div id="wrapper-botoes" class="wrapper-botoes" style="display:none;">
 
- <div>
+<div>
  <meta charset="UTF-8">
    <cakto-upsell-buttons>
       <cakto-upsell-accept
-        bg-color="#0f7865"
+        bg-color="#22a05f"
         text-color="#ffffff"
         upsell-accept-url="https://angelsociety.site/upsell_092/"
         offer-id="3frqmv3"
@@ -216,7 +216,7 @@
         offer-type="upsell"
         upsell-reject-url="https://angelsociety.site/donwsell_0101/"   
       >
-        Aceito a proteção do meu anjo da guarda! AMÉM 🙌​🙏
+        Aceito a proteção do meu anjo da guarda! AMÉM 🙌🙏
       </cakto-upsell-accept>
       <cakto-upsell-reject
         upsell-reject-url="https://angelsociety.site/donwsell_0101/"       
@@ -224,29 +224,43 @@
         Desculpe meu anjo da guarda, mas quero ficar sem proteção hoje
       </cakto-upsell-reject>
     </cakto-upsell-buttons>  
-    
 
-     <!-- Descomente o código abaixo para estilzar o css dos botões -->
-      <!-- <style>
-          /* Botão de aceitar upsell */
-          cakto-upsell-accept::part(button) {
-              background-color: red;
-              color: white;
-              /* Ajuste do tamanho do botão 
-              Descomente o código abaixo para definir um tamanho customizado para o botão */
-              /* width: 100vw; */
-          }
+    <style>
+        /* Botão de ACEITAR */
+        cakto-upsell-accept::part(button) {
+            background-color: #22a05f;
+            color: #ffffff;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 18px;
+            line-height: 1.3;
+            padding: 20px 28px;
+            border: none;
+            border-radius: 30px;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color .2s ease;
+        }
+        cakto-upsell-accept::part(button):hover {
+            background-color: #1c8f54;
+        }
 
-          /* Botão de rejeitar upsell */
-          cakto-upsell-reject::part(button) {
-              background-color: blue;
-              color: white;
-          }
-      </style> -->
-
+        /* Link de RECUSAR */
+        cakto-upsell-reject::part(button) {
+            background-color: transparent;
+            color: #c8823c;
+            text-decoration: underline;
+            border: none;
+            box-shadow: none;
+            font-size: 14px;
+            padding: 12px;
+            margin-top: 8px;
+            width: 100%;
+            cursor: pointer;
+        }
+    </style>
   <script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
  </div>
-
 
 </div>
   <!-- Delay 7 minutos (420 segundos) -->
