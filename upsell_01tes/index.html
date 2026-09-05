@@ -348,6 +348,11 @@
 
   <!-- Mecânica das cartas: revela o Arcanjo Miguel e segue para o checkout com o desconto -->
   <script>
+    // Pré-carrega a foto do Arcanjo Miguel assim que a página abre, pra já estar em cache
+    // e trocar na hora no clique (em conexão de celular mais lenta ela pode não chegar a tempo).
+    const imgMiguelPreload = new Image();
+    imgMiguelPreload.src = 'images/arcanjo_miguel.jpg';
+
     document.addEventListener("DOMContentLoaded", function () {
       const container = document.getElementById('cartas-container');
       const revelacao = document.getElementById('revelacao');
@@ -371,7 +376,7 @@
 
           setTimeout(function () {
             window.location.href = destino;
-          }, 1800);
+          }, 2800);
         });
       });
     });
