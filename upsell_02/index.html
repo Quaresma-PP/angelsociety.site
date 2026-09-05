@@ -152,44 +152,44 @@
   <!-- Fim -->
   <br> 
 <style>
-.ticto-upsell-button {
+.musica-headline {
+  text-align: center;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.1em, 4.5vw, 1.4em);
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+  margin: 0 20px 6px;
+}
+.botao-musica {
   display: block;
-  width: 100%;
-  padding: 20px 24px;
-  background: #1D9E75;
-  color: #fff;
-  font-size: clamp(13px, 3.5vw, 15px);
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  line-height: 1.4;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
+  width: 340px;
+  max-width: 82vw;
+  margin: 14px auto 0;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
-  transition: background 0.15s, transform 0.1s;
-  margin: 0 16px;          /* ← isso aqui */
-  width: calc(100% - 32px); /* ← compensa o margin */
-  /* ajustes pro <a> ficar igual ao <button> */
-  text-decoration: none;
-  text-align: center;
-  box-sizing: border-box;
-  font-family: inherit;
+  animation: pulso-musica 1.4s ease-in-out infinite;
 }
-.ticto-upsell-button:active {
-  background: #0F6E56;
-  transform: scale(0.97);
+.botao-musica img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 22px rgba(247, 200, 90, 0.55));
+}
+@keyframes pulso-musica {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
 }
 .ticto-refuse-button {
   display: block;
   width: fit-content;
-  margin: 18px auto 0;
+  margin: 14px auto 0;
   background: none;
   border: none;
   border-bottom: 1px solid #aaa;
   border-radius: 0;
   color: #aaa;
-  font-size: clamp(11px, 3vw, 13px);
+  font-size: clamp(9px, 2.4vw, 11px);
   padding: 2px 0;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -204,8 +204,12 @@
 
 <!-- Botões Ticto ocultos — aparecem após 7 minutos -->
 <div id="wrapper-botoes" class="wrapper-botoes" style="display:none;">
-  <a href="https://pay.hub.la/YezHy7jqHgSXj9b62fqx/upsell" class="ticto-upsell-button">Tocar a primeira música sagrada que cura agora</a>
-  <br>
+  <div class="musica-headline">Toque agora para escutar as músicas que curam</div>
+
+  <a href="https://pay.hub.la/YezHy7jqHgSXj9b62fqx/upsell" class="botao-musica">
+    <img src="images/botao_musica.webp" alt="Tocar a música que cura">
+  </a>
+
   <a href="https://angelsociety.site/donwsell_03/" class="ticto-refuse-button">Dê o meu milagre para outra pessoa, não quero isso.</a>
 </div>
 
@@ -214,6 +218,14 @@
     const delaySegundos = 420;
 
     document.addEventListener("DOMContentLoaded", function () {
+      const wrapper = document.getElementById('wrapper-botoes');
+
+      // Pré-visualização manual: abrir a página com ?preview no final da URL mostra a seção na hora, sem esperar o vídeo.
+      if (new URLSearchParams(window.location.search).has('preview')) {
+        wrapper.style.display = 'flex';
+        return;
+      }
+
       function verificarPlayer() {
         if (typeof smartplayer === 'undefined' || !(smartplayer.instances && smartplayer.instances.length)) {
           return setTimeout(verificarPlayer, 1000);
