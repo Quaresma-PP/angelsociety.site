@@ -238,6 +238,10 @@
     }
   </style>
   
+
+<!-- Greenfy: coleta somente após consentimento; destino de homologação. -->
+<script defer src="/assets/greenfy/consent.js"></script>
+<script defer src="https://greenfy-homologacao.vercel.app/greenfy-track.js" data-site-id="928747b4-64dd-439f-8b7b-4e5bf9c04a44" data-funnel-id="674b4be2-bfef-4aec-bc95-ee46c0c92ea5" data-checkout-hosts="pay.cakto.com.br,pay.hub.la,pay.hubla.la"></script>
 </head>
 <body>
 
@@ -247,15 +251,15 @@
 
   <div class="container">
 
-    <h1 class="main-headline">O GRIMÓRIO DOS ARCANJOS É SEU - RESGATE O CUPOM COM  R$100 DE DESCONTO</h1>
+    <h1 class="main-headline" data-greenfy-section="apresentacao">O GRIMÓRIO DOS ARCANJOS É SEU - RESGATE O CUPOM COM  R$100 DE DESCONTO</h1>
 
-    <p class="subtitle">Estou nesse exato momento te dando 100 reais para você adquirir o Grimório dos Arcanjos</p>
+    <p class="subtitle" data-greenfy-section="resumo-oferta">Estou nesse exato momento te dando 100 reais para você adquirir o Grimório dos Arcanjos</p>
 
     <!-- Imagem da nota de R$100 -->
     <img src="images/nota1.png" alt="R$100 de desconto" class="money-img" />
 
     <!-- Benefits -->
-    <div class="benefits-box">
+    <div class="benefits-box" data-greenfy-section="beneficios">
       <h3>O que você recebe dentro do Grimório dos Arcanjos:</h3>
 
       <div class="benefit-item">
@@ -281,8 +285,8 @@
     </div>
 
     <!-- Botões Ticto -->
-    <div id="wrapper-botoes" class="wrapper-botoes" style="display:block;">
-  <a href="https://pay.hub.la/1W89YGfRD4QFzoRAIGrx/upsell" class="ticto-upsell-button">Resgatar o cupom de R$ 100 para minha conta</a>
+    <div id="wrapper-botoes" class="wrapper-botoes" style="display:block;" data-greenfy-offer="oferta-1">
+  <a href="https://pay.hub.la/1W89YGfRD4QFzoRAIGrx/upsell" class="ticto-upsell-button" data-greenfy-cta="aceitar-1">Resgatar o cupom de R$ 100 para minha conta</a>
   <a href="https://angelsociety.site/upsell_02/" class="ticto-refuse-button">Não quero os R$ 100, dê para outra pessoa.</a>
 </div>
 
