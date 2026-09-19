@@ -211,6 +211,10 @@
     }
   </style>
   
+
+<!-- Greenfy: coleta somente após consentimento; destino de homologação. -->
+<script defer src="/assets/greenfy/consent.js"></script>
+<script defer src="https://greenfy-homologacao.vercel.app/greenfy-track.js" data-site-id="92c53458-f84e-4210-a10e-2989bd9abfb9" data-funnel-id="674b4be2-bfef-4aec-bc95-ee46c0c92ea5" data-checkout-hosts="pay.cakto.com.br,pay.hub.la,pay.hubla.la"></script>
 </head>
 <body>
 
@@ -221,9 +225,9 @@
 
   <div class="container">
 
-    <h1 class="main-headline">AS MÚSICAS DOS ANJOS É SUA AGORA!</h1>
+    <h1 class="main-headline" data-greenfy-section="apresentacao">AS MÚSICAS DOS ANJOS É SUA AGORA!</h1>
 
-    <p class="subtitle">
+    <p class="subtitle" data-greenfy-section="resumo-oferta">
       As músicas que te ajudam contra qualquer enfermidade é sua agora, eu estou te enviando um cupom de R$ 50 reais para você ter acesso a esse milagre.
     </p>
 
@@ -233,7 +237,7 @@
     <!-- Músicas -->
     <p class="section-title">Quais músicas dos anjos você vai receber:</p>
 
-    <ul class="music-list">
+    <ul class="music-list" data-greenfy-section="conteudo">
       <li>🎵 Música dos anjos contra diabetes, essa música ajudou nossos fiéis que tinham a tipo 2 há 10 anos</li>
       <li>🎵 Música dos anjos contra hipertensão, se você sofre com essa enfermidade, escute a música 2</li>
       <li>🎵 Música dos anjos contra lipedema, muitas das nossas irmãs, já não sofrem mais com essa enfermidade depois que escutaram a música 10</li>
@@ -277,8 +281,8 @@
     </p>
 
     <!-- Botões Ticto -->
-   <div id="wrapper-botoes" class="wrapper-botoes" style="display:block;">
-  <a href="https://pay.hub.la/bN29XGhno1vhy3mjPo8o/upsell" class="ticto-upsell-button">Resgatar o cupom de R$ 50 para minha conta</a>
+   <div id="wrapper-botoes" class="wrapper-botoes" style="display:block;" data-greenfy-offer="oferta-1">
+  <a href="https://pay.hub.la/bN29XGhno1vhy3mjPo8o/upsell" class="ticto-upsell-button" data-greenfy-cta="aceitar-1">Resgatar o cupom de R$ 50 para minha conta</a>
   <a href="https://angelsociety.site/upsell-003/" class="ticto-refuse-button">Não quero os R$ 50, dê para outra pessoa.</a>
 </div>
 
