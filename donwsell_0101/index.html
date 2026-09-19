@@ -434,6 +434,10 @@
       }
     }
   </style>
+
+<!-- Greenfy: coleta somente após consentimento; destino de homologação. -->
+<script defer src="/assets/greenfy/consent.js"></script>
+<script defer src="https://greenfy-homologacao.vercel.app/greenfy-track.js" data-site-id="a0d088d1-0ae8-4b8b-bc45-24660a9068c2" data-funnel-id="674b4be2-bfef-4aec-bc95-ee46c0c92ea5" data-checkout-hosts="pay.cakto.com.br,pay.hub.la,pay.hubla.la"></script>
 </head>
 <body>
 
@@ -445,13 +449,13 @@
   <div class="container">
 
     <!-- Main Headline -->
-    <h1 class="main-headline">
+    <h1 class="main-headline" data-greenfy-section="apresentacao">
       Espera um pouco…<br>
       <span class="highlight-green">Antes de sair,</span> Deus tem uma<br>
       <span class="highlight-orange">bênção disponível</span> para você
     </h1>
 
-    <p class="subtitle">
+    <p class="subtitle" data-greenfy-section="resumo-oferta">
       Receba agora o <span class="product-name">Grimório com as orações dos 4 arcanjos</span>
       com <span class="discount-text">R$60 de desconto</span> agora mesmo
     </p>
@@ -459,7 +463,7 @@
     <!-- Product Description -->
     <h2>O que é o Grimório dos Arcanjos?</h2>
 
-    <div class="product-desc">
+    <div class="product-desc" data-greenfy-section="descricao">
       <p>
         É um Grimório antigo usado pelos apóstolos e papas para garantir proteção contra os nós,
         contra a escassez, contra enfermidades, contra inveja, contra mau olhado e todo ou qualquer
@@ -490,9 +494,9 @@
     </div>
 
     <!-- Botões Cakto (bloco 1) -->
- <div class="wrapper-botoes">
+ <div class="wrapper-botoes" data-greenfy-offer="oferta-1">
   <cakto-upsell-buttons>
-    <cakto-upsell-accept
+    <cakto-upsell-accept data-greenfy-cta="aceitar-1"
       bg-color="#1FA85C"
       text-color="#ffffff"
       upsell-accept-url="https://angelsociety.site/upsell_092"
@@ -560,7 +564,7 @@
 </div>
 
     <!-- Benefits -->
-    <div class="benefits-box">
+    <div class="benefits-box" data-greenfy-section="beneficios">
       <h3>O que você recebe dentro do Grimório dos Arcanjos:</h3>
 
       <div class="benefit-item">
@@ -591,9 +595,9 @@
     </div>
 
     <!-- Botões Cakto (bloco 2) -->
-    <div class="wrapper-botoes">
+    <div class="wrapper-botoes" data-greenfy-offer="oferta-2">
   <cakto-upsell-buttons>
-    <cakto-upsell-accept
+    <cakto-upsell-accept data-greenfy-cta="aceitar-2"
       bg-color="#1FA85C"
       text-color="#ffffff"
       upsell-accept-url="https://angelsociety.site/upsell_092"
