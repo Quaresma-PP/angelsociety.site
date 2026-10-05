@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Um último convite · O Ano com Maria</title>
+<meta name="description" content="Só nesta página: mantenha os seus nós desatados o ano inteiro. O Ano com Maria pela metade.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23fbf8f1'/><circle cx='32' cy='33' r='20' fill='none' stroke='%23a5842f' stroke-width='2.4'/><path d='M32 18 V46 M23 27 H41' stroke='%23a5842f' stroke-width='3' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://pay.hub.la">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap"></noscript>
+<style>
+  :root{
+    --paper:#faf7f0; --paper2:#ffffff; --ink:#292824; --muted:#6b665d; --line:#e8e1d2;
+    --gold:#a5842f; --gold-l:#c0a04c; --crimson:#8a2622;
+    --green:#2e8b57; --green-d:#25714a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{font-family:'Inter',system-ui,sans-serif;background:#efe9db;color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:500px;margin:0 auto;min-height:100dvh;background:var(--paper);border-left:1px solid #e4dcc9;border-right:1px solid #e4dcc9}
+  .serif,h1,h2{font-family:'Cormorant Garamond',Georgia,serif;line-height:1.12}
+
+  .bar{display:flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(180deg,#25714a,#1f6040);color:#e7f3ea;padding:9px 15px;text-align:center}
+  .bar .mt{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:#fff;line-height:1.1}
+  .bar .ms{font-size:9.5px;letter-spacing:1.1px;color:#bfe3c9;text-transform:uppercase;margin-top:1px}
+
+  main{padding:14px 16px 0}
+  .halo{width:84px;height:84px;margin:0 auto 8px;border-radius:50%;overflow:hidden;border:2px solid var(--gold-l);box-shadow:0 8px 20px rgba(60,40,10,.22)}
+  .halo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;display:block}
+
+  h1{font-size:clamp(25px,6.6vw,32px);font-weight:600;text-align:center;color:var(--ink);line-height:1.14;margin:0 0 8px}
+  h1 em{font-style:italic;color:var(--crimson)}
+  .kicker{text-align:center;color:var(--muted);font-size:15.5px;max-width:400px;margin:0 auto 14px;line-height:1.55}
+  .kicker b{color:var(--ink)}
+
+  .price{max-width:400px;margin:0 auto 14px;background:#fff;border:1px solid #ecd9a6;border-radius:14px;padding:14px 16px 12px;text-align:center;box-shadow:0 8px 22px rgba(120,90,20,.10)}
+  .price .tag{font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .price .row{display:flex;align-items:baseline;justify-content:center;gap:12px;margin-top:4px}
+  .price .old{font-size:19px;color:#b3ab98;text-decoration:line-through;font-weight:600}
+  .price .new{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--green-d);line-height:1}
+  .price .sub{font-size:12.5px;color:var(--muted);margin-top:5px}
+  .price .sub b{color:var(--crimson)}
+
+  .cta{display:block;width:100%;max-width:400px;margin:0 auto 6px;border:none;border-radius:9px;padding:17px 18px;
+    background:var(--green);color:#fff;font-family:'Inter';font-size:16.5px;font-weight:700;letter-spacing:.3px;
+    text-align:center;text-transform:uppercase;cursor:pointer;text-decoration:none;line-height:1.3;
+    box-shadow:0 6px 16px rgba(46,139,87,.30)}
+  @keyframes pulsa{0%,100%{transform:scale(1);box-shadow:0 6px 16px rgba(46,139,87,.30)}50%{transform:scale(1.03);box-shadow:0 12px 30px rgba(46,139,87,.46)}}
+  .cta{animation:pulsa 2.4s ease-in-out infinite}
+  @media (prefers-reduced-motion:reduce){.cta{animation:none}}
+  .cta:hover{background:var(--green-d)}
+  .cta:active{transform:translateY(1px)}
+  .ctasub{text-align:center;color:var(--muted);font-size:13px;margin:0 auto 2px;max-width:360px;line-height:1.5}
+  .ctasub .g{color:var(--green-d);font-weight:600}
+  .ctasub b{color:var(--ink)}
+
+  .sep{display:flex;align-items:center;justify-content:center;gap:12px;margin:26px auto 16px;max-width:320px;color:var(--gold-l);font-family:'Cormorant Garamond',serif;font-size:18px}
+  .sep::before,.sep::after{content:"";height:1px;flex:1;background:var(--line)}
+
+  .benstitle{max-width:410px;margin:0 auto 8px;text-align:center;color:var(--ink);font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600}
+  .bens{max-width:410px;margin:0 auto 4px;list-style:none;padding:0}
+  .bens li{display:flex;gap:10px;align-items:flex-start;padding:8px 2px;font-size:15px;color:#40403a;line-height:1.45;border-top:1px solid #efe7d5}
+  .bens li:first-child{border-top:none}
+  .bens li .ck{flex:0 0 auto;color:var(--green);font-weight:800;margin-top:1px}
+  .bens li b{color:var(--ink)}
+
+  .phone{max-width:214px;margin:16px auto 6px;border:9px solid #17110a;border-radius:30px;overflow:hidden;box-shadow:0 20px 42px rgba(40,32,10,.32);background:#17110a;line-height:0}
+  .phone img{width:100%;display:block}
+  .mockcap{text-align:center;color:var(--muted);font-size:13.5px;max-width:340px;margin:0 auto 4px;line-height:1.5}
+  .mockcap b{color:var(--ink)}
+
+  .guar{text-align:center;color:var(--muted);font-size:12.5px;margin:10px auto 0;max-width:340px}
+  /* BOTÕES CAKTO — só aparência; cor de fundo/texto do "Sim" vêm dos atributos da Cakto */
+  cakto-upsell-buttons{display:block}
+  cakto-upsell-accept{display:block;width:100%;max-width:400px;margin:0 auto 6px;border-radius:9px;animation:pulsa 2.4s ease-in-out infinite}
+  @media (prefers-reduced-motion:reduce){cakto-upsell-accept{animation:none}}
+  cakto-upsell-accept::part(button){width:100%;border:none;border-radius:9px;padding:17px 18px;font-family:'Inter',system-ui,sans-serif;
+    font-size:16.5px;font-weight:700;letter-spacing:.3px;text-transform:uppercase;line-height:1.3;cursor:pointer}
+  cakto-upsell-reject{display:block;width:100%;max-width:370px;margin:18px auto 4px;text-align:center}
+  cakto-upsell-reject::part(button){background:transparent;border:none;color:#c0392b;font-family:'Inter',system-ui,sans-serif;
+    font-size:14.5px;font-weight:600;text-decoration:underline;text-underline-offset:3px;line-height:1.45;cursor:pointer;width:100%}
+  cakto-upsell-reject::part(button):hover{color:#8a2622}
+
+  footer{text-align:center;margin-top:26px;padding:20px 22px 30px;border-top:1px solid var(--line);color:#9a9382;font-size:11.5px;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="bar">
+    <svg width="26" height="26" viewBox="0 0 64 64" fill="none">
+      <circle cx="32" cy="33" r="26" stroke="#bfe3c9" stroke-width="1.4"/>
+      <path d="M32 16 V45 M22.5 25 H41.5" stroke="#e7f3ea" stroke-width="2.6" stroke-linecap="round"/>
+    </svg>
+    <div>
+      <div class="mt">Novena de Nossa Senhora Desatadora dos Nós</div>
+      <div class="ms">Um último convite · só nesta página</div>
+    </div>
+  </div>
+
+  <main>
+    <div class="halo"><img src="santa.jpg" alt="Nossa Senhora Desatadora dos Nós"></div>
+
+    <h1>Os seus nós vão se desatar.<br><em>Não deixe que se atem de novo.</em></h1>
+    <p class="kicker">A novena <b>solta</b> o nó. O <b>Ano com Maria</b> mantém ele solto — rezando um dia de cada vez, o ano inteiro. Só nesta página, e <b>pela metade</b>.</p>
+
+    <div class="price">
+      <div class="tag">Só nesta página</div>
+      <div class="row"><span class="old">R$ 69</span><span class="new">R$ 37</span></div>
+      <div class="sub">O Ano com Maria — 365 dias · <b>essa porta não abre de novo</b></div>
+    </div>
+
+    <!-- BOTÃO CAKTO (1-clique). Atributos e script exatamente como a Cakto gerou. -->
+    <cakto-upsell-buttons>
+      <cakto-upsell-accept
+        bg-color="#0f7865"
+        text-color="#ffffff"
+        upsell-accept-url="members_area"
+        offer-id="qhcz2md"
+        app-base-url="https://app.cakto.com.br"
+        offer-type="upsell"
+        upsell-reject-url="members_area"
+      >
+        SIM, QUERO MANTER MEUS NÓS DESATADOS — R$ 37
+      </cakto-upsell-accept>
+    </cakto-upsell-buttons>
+    <p class="ctasub">Acesso imediato, no <span class="g">mesmo app</span> em que você já reza. <b>Sua garantia continua.</b></p>
+
+    <div class="sep">✦</div>
+
+    <div class="benstitle">A cada manhã, no mesmo aplicativo:</div>
+    <ul class="bens">
+      <li><span class="ck">✓</span><span><b>Um salmo explicado</b>, versículo por versículo, em palavras que você entende.</span></li>
+      <li><span class="ck">✓</span><span><b>Uma oração para o que aperta:</b> o dinheiro, os filhos, a saúde, o perdão, o medo do amanhã.</span></li>
+      <li><span class="ck">✓</span><span><b>Um passo simples</b> para levar a fé da tela para o dia real.</span></li>
+    </ul>
+
+    <div class="phone"><img src="br-app.png" alt="A Novena no seu celular" loading="lazy"></div>
+    <p class="mockcap">São <b>365 dias</b> de mãos dadas com Ela. Não é recomeçar — é <b>não deixar o nó voltar</b>.</p>
+
+    <!-- Atalho: aperta o mesmo botão da Cakto lá de cima (um único fluxo de compra). -->
+    <a href="#" class="cta" id="cta2" style="margin-top:16px">SIM, QUERO O ANO COM MARIA POR R$ 37</a>
+    <div class="guar">🛡️ Acesso imediato · a sua garantia continua sendo sua.</div>
+
+    <cakto-upsell-buttons>
+      <cakto-upsell-reject
+        upsell-reject-url="members_area"
+      >
+        Agora não — quero apenas acessar a minha Novena.
+      </cakto-upsell-reject>
+    </cakto-upsell-buttons>
+
+    <script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
+
+    <footer>
+      <svg width="38" height="38" viewBox="0 0 64 64" fill="none" style="margin-bottom:6px">
+        <circle cx="32" cy="33" r="27" stroke="#c0a04c" stroke-width="1.4"/>
+        <circle cx="32" cy="33" r="22" stroke="#a5842f" stroke-width="1"/>
+        <path d="M32 15 V44 M22.5 24 H41.5" stroke="#a5842f" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M24 48 q8 5 16 0" stroke="#a5842f" stroke-width="1.4" stroke-linecap="round"/>
+      </svg>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)">Desatadora dos Nós</div>
+      <div style="font-size:11px;color:var(--muted);letter-spacing:1px;margin-top:2px">O Ano com Maria</div>
+    </footer>
+  </main>
+</div>
+
+<script>
+  /* Compra e recusa são tratadas pelo script da Cakto (upsell.js).
+     O botão de baixo só aperta o botão "Sim" da Cakto lá de cima. */
+  document.getElementById('cta2').addEventListener('click', function(e){
+    e.preventDefault();
+    var acc = document.querySelector('cakto-upsell-accept');
+    var btn = acc && acc.shadowRoot && acc.shadowRoot.getElementById('cakto-upsell-accept');
+    if(btn && !btn.disabled){ btn.click(); }
+    else if(acc){ acc.scrollIntoView({behavior:'smooth', block:'center'}); }
+  });
+</script>
+</body>
+</html>
