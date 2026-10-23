@@ -104,6 +104,33 @@
       font-family: Arial, sans-serif;
     }
     .kit-box > p { font-size: 15px; color: #333; line-height: 1.65; }
+    .itens-kit { list-style: none; margin: 14px 0 0; padding: 0; }
+    .itens-kit li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: #fff;
+      border: 1px solid #ecdcb5;
+      border-radius: 8px;
+      padding: 11px 12px;
+      margin-bottom: 8px;
+      font-size: 15.5px;
+      font-weight: 700;
+      color: #1a1a1a;
+      line-height: 1.4;
+    }
+    .itens-kit li:last-child { margin-bottom: 0; }
+    .itens-kit .check {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #00a63e;
+      color: #fff;
+      font-size: 13px;
+      line-height: 22px;
+      text-align: center;
+    }
     .essencias {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -148,7 +175,7 @@
     }
     .old-label { font-size: 13px; color: #777; margin-bottom: 4px; }
     .old-price {
-      font-size: 20px;
+      font-size: 15px;
       color: #999;
       text-decoration: line-through;
       margin-bottom: 10px;
@@ -157,10 +184,10 @@
       display: inline-block;
       background: #e67e00;
       color: #fff;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 6px 18px;
-      border-radius: 4px;
+      font-size: 19px;
+      font-weight: 900;
+      padding: 9px 20px;
+      border-radius: 6px;
       margin-bottom: 14px;
       letter-spacing: 0.5px;
     }
@@ -197,8 +224,13 @@
       width: 100%;
       text-align: center;
     }
+    /* pulsa o botão inteiro (o "host" da Cakto) */
+    cakto-upsell-accept {
+      display: block;
+      animation: pulso-forte 1.8s ease-in-out infinite;
+    }
     cakto-upsell-accept::part(button) {
-      background-color: #18b48f !important;
+      background-color: #00a63e !important;
       color: #ffffff !important;
       width: 100% !important;
       font-size: 1.1em !important;
@@ -207,11 +239,12 @@
       border: none !important;
       border-radius: 12px !important;
       cursor: pointer !important;
-      animation: pulso-lento 2.6s ease-in-out infinite;
+      box-shadow: 0 5px 0 #007a2d, 0 8px 20px rgba(0,166,62,0.45) !important;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.25) !important;
     }
-    @keyframes pulso-lento {
-      0%, 100% { transform: scale(1);    box-shadow: 0 6px 18px rgba(24,180,143,0.40); }
-      50%      { transform: scale(1.05); box-shadow: 0 8px 28px rgba(24,180,143,0.70); }
+    @keyframes pulso-forte {
+      0%, 100% { transform: scale(1); }
+      50%      { transform: scale(1.06); }
     }
     cakto-upsell-reject::part(button) {
       color: #8a8a8a !important;
@@ -222,20 +255,18 @@
     /* Botão que leva até a oferta */
     .btn-ir-oferta {
       display: block;
-      background: #18b48f;
+      background: #00a63e;
       color: #fff;
       text-decoration: none;
+      box-shadow: 0 5px 0 #007a2d, 0 8px 20px rgba(0,166,62,0.45);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.25);
       font-family: Arial, sans-serif;
       font-weight: 800;
       font-size: 1.05em;
       padding: 17px 14px;
       border-radius: 12px;
       text-align: center;
-      animation: pulso-lento 2.6s ease-in-out infinite;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      cakto-upsell-accept::part(button), .btn-ir-oferta { animation: none; }
+      animation: pulso-forte 1.8s ease-in-out infinite;
     }
 
     .security-note {
@@ -268,17 +299,17 @@
       .essencia b { font-size: 14px; }
       .bonus-livro { font-size: 14px; padding: 11px 12px; }
       .price-box { padding: 22px 14px; margin: 22px 0; }
-      .old-price { font-size: 18px; }
-      .discount-badge { font-size: 12.5px; padding: 6px 12px; }
+      .old-price { font-size: 14px; }
+      .discount-badge { font-size: 16px; padding: 8px 14px; }
       .special-condition { font-size: 16px; }
       .new-price { padding: 12px 26px; }
       .aviso-envio { font-size: 13.5px; padding: 12px 12px; }
       .btn-ir-oferta { font-size: 15px; padding: 16px 12px; }
       cakto-upsell-accept::part(button) { font-size: 15px !important; padding: 16px 12px !important; }
       /* pulso um pouco menor no celular pra não encostar nas bordas */
-      @keyframes pulso-lento {
-        0%, 100% { transform: scale(1);    box-shadow: 0 6px 18px rgba(24,180,143,0.40); }
-        50%      { transform: scale(1.03); box-shadow: 0 8px 24px rgba(24,180,143,0.70); }
+      @keyframes pulso-forte {
+        0%, 100% { transform: scale(1); }
+        50%      { transform: scale(1.04); }
       }
     }
 
@@ -310,7 +341,7 @@
     </p>
 
     <div class="produto-img">
-      <img src="images/kit-consagrado.jpg" alt="Kit Consagrado com as 4 essências dos Arcanjos e o Guia dos Quatro Arcanjos" width="900" height="1125">
+      <img src="images/kit-consagrado.jpg" alt="Kit Consagrado dos Arcanjos" width="900" height="1125">
     </div>
 
     <h2>Eu sei por que você disse "não" agora há pouco...</h2>
@@ -328,19 +359,15 @@
     <h2>O que vem no Kit Consagrado?</h2>
 
     <div class="kit-box">
-      <p>Um kit físico, enviado até a sua casa, para você manter a conexão com os 4 Arcanjos todos os dias:</p>
+      <p>Um kit físico, enviado até a sua casa, para manter a proteção dos Arcanjos com você todos os dias:</p>
 
-      <div class="essencias">
-        <div class="essencia e-miguel"><b>MIGUEL</b>Proteção</div>
-        <div class="essencia e-gabriel"><b>GABRIEL</b>Comunicação</div>
-        <div class="essencia e-rafael"><b>RAFAEL</b>Cura</div>
-        <div class="essencia e-uriel"><b>URIEL</b>Prosperidade</div>
-      </div>
-
-      <div class="bonus-livro">
-        <span>📖</span>
-        <span><b>+ Guia dos Quatro Arcanjos:</b> o livro que ensina como usar cada essência e as orações para pedir proteção, orientação, cura e prosperidade.</span>
-      </div>
+      <ul class="itens-kit">
+        <li><span class="check">✔</span><span>Imagem do Arcanjo Miguel</span></li>
+        <li><span class="check">✔</span><span>Terço de São Bento</span></li>
+        <li><span class="check">✔</span><span>Kit de velas com oração de São Miguel Arcanjo</span></li>
+        <li><span class="check">✔</span><span>Crucifixo de São Bento</span></li>
+        <li><span class="check">✔</span><span>Óleo bento consagrado por Nossa Senhora</span></li>
+      </ul>
     </div>
 
     <a href="#oferta" class="btn-ir-oferta">QUERO MEU KIT COM DESCONTO</a>
@@ -349,7 +376,7 @@
     <div class="price-box" id="oferta">
       <p class="old-label">Na página anterior, o valor era:</p>
       <p class="old-price">R$349,00</p>
-      <div class="discount-badge">🔥 15% DE DESCONTO EXCLUSIVO 🔥</div>
+      <div class="discount-badge">🔥 15% DE DESCONTO 🔥</div>
 
       <p class="special-condition">Condição especial HOJE:</p>
       <div class="new-price">R$297,00</div>
@@ -361,7 +388,7 @@
 
       <cakto-upsell-buttons>
         <cakto-upsell-accept
-          bg-color="#18b48f"
+          bg-color="#00a63e"
           text-color="#ffffff"
           upsell-accept-url="https://angelsociety.site/upsell_092"
           offer-id="5qb33xn"
