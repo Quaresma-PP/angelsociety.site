@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Espera um pouco... Kit Consagrado dos Arcanjos</title>
+  <link rel="preload" href="images/kit-consagrado.jpg" as="image">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      background: #ffffff;
+      color: #1a1a1a;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ── Barra de urgência ── */
+    .urgency-bar {
+      background: #c0392b;
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 32px 18px 60px;
+    }
+
+    /* ── Headline ── */
+    .main-headline {
+      text-align: center;
+      font-size: clamp(26px, 6.5vw, 34px);
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .main-headline .hl-green { color: #1a7a1a; font-weight: 700; }
+    .main-headline .hl-gold  { color: #c58a00; font-weight: 700; }
+
+    .subtitle {
+      text-align: center;
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 26px;
+      font-family: Arial, sans-serif;
+    }
+    .subtitle .discount-text { color: #c0392b; font-weight: 700; }
+    .subtitle .product-name  { color: #1a7a1a; font-weight: 700; }
+
+    /* ── Imagem ── */
+    .produto-img {
+      text-align: center;
+      margin: 8px 0 26px;
+    }
+    .produto-img img {
+      max-width: 100%;
+      width: 460px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.30);
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 30px 0 14px;
+      line-height: 1.3;
+    }
+
+    /* ── Objeções ── */
+    .objections p {
+      font-size: 15px;
+      color: #333;
+      margin-bottom: 8px;
+      font-family: Arial, sans-serif;
+    }
+    .obj-item {
+      display: flex;
+      gap: 8px;
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 6px;
+      font-family: Arial, sans-serif;
+    }
+    .obj-item .x-mark { color: #c0392b; font-weight: 700; flex-shrink: 0; }
+    .objections strong { color: #c0392b; }
+
+    /* ── O que vem no kit ── */
+    .kit-box {
+      background: #fbf8f1;
+      border: 1px solid #ecdcb5;
+      border-radius: 10px;
+      padding: 22px 20px;
+      margin: 16px 0;
+      font-family: Arial, sans-serif;
+    }
+    .kit-box > p { font-size: 15px; color: #333; line-height: 1.65; }
+    .essencias {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .essencia {
+      border-radius: 8px;
+      padding: 10px 12px;
+      color: #fff;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    .essencia b { display: block; font-size: 15px; letter-spacing: 0.5px; }
+    .e-miguel  { background: #2c4f8f; }
+    .e-gabriel { background: #b59a12; }
+    .e-rafael  { background: #2f7d55; }
+    .e-uriel   { background: #c4741c; }
+
+    .bonus-livro {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: #fff;
+      border: 1px dashed #c9a96e;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 14.5px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    /* ── Preço ── */
+    .price-box {
+      text-align: center;
+      background: #fafafa;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 26px 18px;
+      margin: 26px 0;
+      font-family: Arial, sans-serif;
+    }
+    .old-label { font-size: 13px; color: #777; margin-bottom: 4px; }
+    .old-price {
+      font-size: 20px;
+      color: #999;
+      text-decoration: line-through;
+      margin-bottom: 10px;
+    }
+    .discount-badge {
+      display: inline-block;
+      background: #e67e00;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+      letter-spacing: 0.5px;
+    }
+    .special-condition { font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+    .new-price {
+      background: #1a7a1a;
+      color: #fff;
+      font-size: clamp(30px, 9vw, 40px);
+      font-weight: 900;
+      padding: 14px 34px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .cash-price { font-size: 15px; color: #333; margin-bottom: 18px; }
+
+    /* ── Aviso de envio ── */
+    .aviso-envio {
+      margin: 0 auto 18px;
+      padding: 13px 14px;
+      background: #fff8e1;
+      border: 2px dashed #f5b301;
+      border-radius: 12px;
+      color: #5a4300;
+      font-size: 14.5px;
+      line-height: 1.45;
+      text-align: center;
+    }
+    .aviso-envio strong { color: #3d2d00; }
+
+    /* ── Botões Cakto ── */
+    cakto-upsell-buttons {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+    cakto-upsell-accept::part(button) {
+      background-color: #18b48f !important;
+      color: #ffffff !important;
+      width: 100% !important;
+      font-size: 1.1em !important;
+      font-weight: 800 !important;
+      padding: 18px 14px !important;
+      border: none !important;
+      border-radius: 12px !important;
+      cursor: pointer !important;
+      animation: pulso-lento 2.6s ease-in-out infinite;
+    }
+    @keyframes pulso-lento {
+      0%, 100% { transform: scale(1);    box-shadow: 0 6px 18px rgba(24,180,143,0.40); }
+      50%      { transform: scale(1.05); box-shadow: 0 8px 28px rgba(24,180,143,0.70); }
+    }
+    cakto-upsell-reject::part(button) {
+      color: #8a8a8a !important;
+      font-size: 13px !important;
+      margin-top: 14px !important;
+    }
+
+    /* Botão que leva até a oferta */
+    .btn-ir-oferta {
+      display: block;
+      background: #18b48f;
+      color: #fff;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-weight: 800;
+      font-size: 1.05em;
+      padding: 17px 14px;
+      border-radius: 12px;
+      text-align: center;
+      animation: pulso-lento 2.6s ease-in-out infinite;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      cakto-upsell-accept::part(button), .btn-ir-oferta { animation: none; }
+    }
+
+    .security-note {
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+      margin-top: 16px;
+    }
+
+    .sep { border: none; border-top: 1px solid #e0e0e0; margin: 36px 0 18px; }
+
+    /* ── Mobile ── */
+    html, body { overflow-x: hidden; -webkit-text-size-adjust: 100%; }
+    img { max-width: 100%; }
+
+    @media (max-width: 600px) {
+      .urgency-bar { font-size: 11.5px; padding: 9px 12px; letter-spacing: 0.2px; }
+      .container { padding: 22px 16px 44px; }
+      .main-headline { font-size: 25px; margin-bottom: 10px; }
+      .main-headline br { display: none; }
+      .subtitle { font-size: 15px; margin-bottom: 18px; }
+      .produto-img { margin: 4px 0 20px; }
+      .produto-img img { width: 100%; border-radius: 10px; }
+      h2 { font-size: 19px; margin: 24px 0 10px; }
+      .objections p, .obj-item { font-size: 14.5px; }
+      .kit-box { padding: 16px 14px; }
+      .kit-box > p { font-size: 14.5px; }
+      .essencias { gap: 8px; margin: 14px 0; }
+      .essencia { padding: 9px 10px; font-size: 13px; }
+      .essencia b { font-size: 14px; }
+      .bonus-livro { font-size: 14px; padding: 11px 12px; }
+      .price-box { padding: 22px 14px; margin: 22px 0; }
+      .old-price { font-size: 18px; }
+      .discount-badge { font-size: 12.5px; padding: 6px 12px; }
+      .special-condition { font-size: 16px; }
+      .new-price { padding: 12px 26px; }
+      .aviso-envio { font-size: 13.5px; padding: 12px 12px; }
+      .btn-ir-oferta { font-size: 15px; padding: 16px 12px; }
+      cakto-upsell-accept::part(button) { font-size: 15px !important; padding: 16px 12px !important; }
+      /* pulso um pouco menor no celular pra não encostar nas bordas */
+      @keyframes pulso-lento {
+        0%, 100% { transform: scale(1);    box-shadow: 0 6px 18px rgba(24,180,143,0.40); }
+        50%      { transform: scale(1.03); box-shadow: 0 8px 24px rgba(24,180,143,0.70); }
+      }
+    }
+
+    @media (max-width: 360px) {
+      .main-headline { font-size: 22px; }
+      .essencias { grid-template-columns: 1fr 1fr; }
+      .new-price { font-size: 28px; padding: 10px 20px; }
+      .btn-ir-oferta, cakto-upsell-accept::part(button) { font-size: 14px !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="urgency-bar">
+    ⚠️ IMPORTANTE: ESSA OFERTA ESTÁ DISPONÍVEL APENAS NESSA PÁGINA
+  </div>
+
+  <div class="container">
+
+    <h1 class="main-headline">
+      Espera um pouco…<br>
+      <span class="hl-green">Antes de sair,</span> os Arcanjos têm<br>
+      <span class="hl-gold">um presente para você</span>
+    </h1>
+
+    <p class="subtitle">
+      Receba em casa o <span class="product-name">Kit Consagrado dos 4 Arcanjos</span>
+      com <span class="discount-text">R$52 de desconto</span> — só nesta página
+    </p>
+
+    <div class="produto-img">
+      <img src="images/kit-consagrado.jpg" alt="Kit Consagrado com as 4 essências dos Arcanjos e o Guia dos Quatro Arcanjos" width="900" height="1125">
+    </div>
+
+    <h2>Eu sei por que você disse "não" agora há pouco...</h2>
+
+    <div class="objections">
+      <p>E tá tudo bem. É normal pensar:</p>
+      <div class="obj-item"><span class="x-mark">×</span><span>"Depois eu vejo isso..."</span></div>
+      <div class="obj-item"><span class="x-mark">×</span><span>"Agora não dá pra gastar tanto..."</span></div>
+      <div class="obj-item"><span class="x-mark">×</span><span>"Não sei se é pra mim..."</span></div>
+      <p style="margin-top: 14px;">
+        Foi justamente por entender isso que liberei uma condição única: <strong>o Kit Consagrado com R$52 de desconto.</strong>
+      </p>
+    </div>
+
+    <h2>O que vem no Kit Consagrado?</h2>
+
+    <div class="kit-box">
+      <p>Um kit físico, enviado até a sua casa, para você manter a conexão com os 4 Arcanjos todos os dias:</p>
+
+      <div class="essencias">
+        <div class="essencia e-miguel"><b>MIGUEL</b>Proteção</div>
+        <div class="essencia e-gabriel"><b>GABRIEL</b>Comunicação</div>
+        <div class="essencia e-rafael"><b>RAFAEL</b>Cura</div>
+        <div class="essencia e-uriel"><b>URIEL</b>Prosperidade</div>
+      </div>
+
+      <div class="bonus-livro">
+        <span>📖</span>
+        <span><b>+ Guia dos Quatro Arcanjos:</b> o livro que ensina como usar cada essência e as orações para pedir proteção, orientação, cura e prosperidade.</span>
+      </div>
+    </div>
+
+    <a href="#oferta" class="btn-ir-oferta">QUERO MEU KIT COM DESCONTO</a>
+
+    <!-- Oferta -->
+    <div class="price-box" id="oferta">
+      <p class="old-label">Na página anterior, o valor era:</p>
+      <p class="old-price">R$349,00</p>
+      <div class="discount-badge">🔥 15% DE DESCONTO EXCLUSIVO 🔥</div>
+
+      <p class="special-condition">Condição especial HOJE:</p>
+      <div class="new-price">R$297,00</div>
+      <p class="cash-price">à vista ou parcelado no cartão</p>
+
+      <div class="aviso-envio">
+        📦 <strong>Atenção:</strong> após a confirmação, nossa equipe vai <strong>entrar em contato com você</strong> para pegar o seu <strong>endereço de envio</strong>.
+      </div>
+
+      <cakto-upsell-buttons>
+        <cakto-upsell-accept
+          bg-color="#18b48f"
+          text-color="#ffffff"
+          upsell-accept-url="https://angelsociety.site/upsell_092"
+          offer-id="5qb33xn"
+          app-base-url="https://app.cakto.com.br"
+          offer-type="upsell"
+          upsell-reject-url="https://angelsociety.site/donwsell_092"
+        >
+          SIM, QUERO MEU KIT COM DESCONTO
+        </cakto-upsell-accept>
+        <cakto-upsell-reject
+          upsell-reject-url="https://angelsociety.site/donwsell_092"
+        >
+          Não, eu não quero a proteção dos arcanjos na minha casa
+        </cakto-upsell-reject>
+      </cakto-upsell-buttons>
+
+      <p class="security-note">🔒 Pagamento 100% seguro • Oferta válida apenas nesta página</p>
+    </div>
+
+    <hr class="sep">
+    <p style="text-align:center; font-size: 12px; color: #aaa; font-family: Arial, sans-serif;">
+      Esta é uma oferta exclusiva para quem acabou de confirmar sua contribuição
+    </p>
+
+  </div>
+
+  <script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
+</body>
+</html>
